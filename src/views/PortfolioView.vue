@@ -5,17 +5,13 @@ import { ref } from 'vue';
 
 <template>
   <main class="text-white main-container-home">
-    <h1 class="mb-3">Curriculum</h1>
+    <h1 class="mb-3">Portafolio</h1>
     
     <div class="row mb-5">
       <div class="col-6">
-        <h3>Formación</h3>
         <p class="about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum porro dolor quos provident impedit possimus reiciendis quis, alias at nisi illum minus magnam itaque recusandae sunt dolorum repellat accusantium unde? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis repellat alias odit soluta dolores tempore ad sed voluptate repellendus harum ab similique molestias, totam porro sunt cupiditate eveniet hic. Corporis.</p>
       </div>
-      <div class="col-6">
-        <h3>Formación</h3>
-        <p class="about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum porro dolor quos provident impedit possimus reiciendis quis, alias at nisi illum minus magnam itaque recusandae sunt dolorum repellat accusantium unde? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis repellat alias odit soluta dolores tempore ad sed voluptate repellendus harum ab similique molestias, totam porro sunt cupiditate eveniet hic. Corporis.</p>
-      </div>
+     
     </div>
 
   </main>

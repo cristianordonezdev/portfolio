@@ -9,7 +9,9 @@
     <p class="main-dedicate">Full-Stack Developer</p>
     <div class="d-flex mb-5">
       <i class="bi bi-linkedin icon"></i>
+      <i class="bi bi-github icon ms-3"></i>
       <i class="bi bi-instagram icon ms-3"></i>
+
     </div>
     <button type="button" class="btn btn-outline-light button-download">Descargar CV</button>
 
