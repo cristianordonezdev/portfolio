@@ -25,9 +25,9 @@ import RouterMenu from './components/RouterMenu.vue';
 .main-container {
   background-color: rgba(255, 255, 255, 0.164);
   width: 100%;
-  height: 100%;
+  height: 80vh;
+  // height: 100%;
   backdrop-filter: blur(30px);
   border-radius: 2em;
-  overflow: hidden;
 }
 </style>

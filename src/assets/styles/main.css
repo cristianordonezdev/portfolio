@@ -4,3 +4,26 @@ body {
   background-repeat: no-repeat;
   background-position: fixed;
 }
+/* Esto aplica a todo el documento */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+
+/* Personalizar el scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* Ancho del scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Color de fondo del track (línea del scrollbar) */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2994db; /* Color del thumb (barra deslizante) */
+  border-radius: 5px; /* Bordes redondeados del thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2980b9; /* Cambia el color del thumb al pasar el mouse sobre él */
+}
