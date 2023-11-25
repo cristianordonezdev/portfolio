@@ -1,4 +1,12 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
+const social_networks = ref([
+  {icon: 'bi bi-linkedin icon', url: 'https://www.linkedin.com/in/cristian-ram%C3%B3n-ordo%C3%B1ez-16b928191/'},
+  {icon: 'bi bi-github icon ms-3', url: 'https://github.com/cristianordonezdev'},
+  {icon: 'bi bi-instagram icon ms-3', url: 'https://www.instagram.com/naitsirc_nomar/'}
+])
+
 </script>
 
 <template>
@@ -8,9 +16,9 @@
     <h1 class="mt-5">Cristian Ordoñez</h1>
     <p class="main-dedicate">Full-Stack Developer</p>
     <div class="d-flex mb-5">
-      <i class="bi bi-linkedin icon"></i>
-      <i class="bi bi-github icon ms-3"></i>
-      <i class="bi bi-instagram icon ms-3"></i>
+      <a :href="i.url"  target="_blank" v-for="i in social_networks" :key="i.icon" class="text-white">
+        <i :class="i.icon"></i>
+      </a>
 
     </div>
     <button type="button" class="btn btn-outline-light button-download">Descargar CV</button>
