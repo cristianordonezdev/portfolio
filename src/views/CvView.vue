@@ -10,7 +10,7 @@ const lines: any = ref(
           year: '2017', 
           year_description: 'Universidad Autonoma del Estado de México',
           title: 'Fundamentos de Programación',
-          title_description: 'Empecé la carrera de Ingeniería en Sistemas y se empezo a tener  mucho interes en el mundo de la programación.'
+          title_description: 'Empecé la carrera de Ingeniería en Sistemas Inteligentes. Se empezo a tener  mucho interes en el mundo de la programación.'
         },
         {
           year: '2020', 
