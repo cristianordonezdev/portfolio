@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-declare var require: any
-// import images from '@/images/index'
 import CardProjects from '@/components/CardProjects.vue';
 
 const profesional_projects: any = ref(

@@ -59,7 +59,7 @@ const redirect = (route: string): void => {
     @click="redirect(props.data?.url)"
   >
   <div class="container-coming-redirect" v-if="props.data?.is_in_progress">
-    <h5>Proximamente</h5>
+    <h5>Próximamente</h5>
   </div>
   <div class="container-title-redirect">
     <h5>{{ props.data?.name }}</h5>
