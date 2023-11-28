@@ -48,7 +48,7 @@ const image = "@/assets/img/OLC.jpeg"
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <button class="nav-link active me-2" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Proyectos Profesionales</button>
-          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Proyectos Personales</button>
+          <button class="nav-link" id="nav-profile-tab" disabled data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Proyectos Personales</button>
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
@@ -96,5 +96,15 @@ const image = "@/assets/img/OLC.jpeg"
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 2rem;
   }
+}
+@media(max-width: 750px) {
+ .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+ }
+}
+@media(max-width: 500px) {
+ .grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+ }
 }
 </style>

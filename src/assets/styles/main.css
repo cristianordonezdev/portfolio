@@ -1,7 +1,7 @@
 body {
   background-image: url('./../img/keyboard.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-position: fixed;
 }
 /* Esto aplica a todo el documento */

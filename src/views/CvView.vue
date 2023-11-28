@@ -65,7 +65,7 @@ const habilities: any = ref([
 <template>
   <main class="text-white main-container-home">    
     <div class="mb-5 overflow-scrols row">
-      <div class="flex-column col-6">
+      <div class="flex-column col-12 col-md-6">
         <div class="mb-5" v-for="line in lines" :key="line.name">
           <h3 class="mb-4">{{ line.name }}</h3>
           <div class="linea-tiempo">
@@ -89,7 +89,7 @@ const habilities: any = ref([
         </div>
       </div>
       
-      <div class="col-6 mb-5 ps-5">
+      <div class="col-12 col-md-6 mb-5 ps-md-5">
         <h3 class="mb-4">Habilidades de código</h3>
         <div class="d-flex flex-wrap mb-3" v-for="(i, index) in habilities" :key="index">
           <div class="d-flex justify-content-between w-100">
@@ -107,7 +107,7 @@ const habilities: any = ref([
 <style lang="scss" scoped>
 .main-container-home {
   padding: 2em;
-  height: inherit;
+  height: 100%;
   .overflow-scrols {
     height: 100%;
     overflow-y: scroll;
@@ -170,5 +170,10 @@ const habilities: any = ref([
 
 .momento:nth-child(even)::after {
   left: calc(-11.11% - 8.5px);
+}
+@media(max-width: 1000px) {
+  .main-container-home {
+    padding: 1em;
+  }
 }
 </style>

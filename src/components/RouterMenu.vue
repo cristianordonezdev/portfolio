@@ -11,7 +11,7 @@ const route = useRoute()
     <router-link 
       v-for="item in navigation_items" 
       :key="item.route_name" 
-      class="px-3 mx-1 item-navigation" 
+      class="px-sm-3 px-2 mx-sm-1 item-navigation" 
       :to="{name: item.route_name}"
     >
       <i :class="`icon-router-menu ${item.icon} ${route.name === item.route_name ? 'active' : ''}`"></i>
@@ -35,6 +35,17 @@ const route = useRoute()
   }
   .active {
     color: $secondary-color;
+  }
+}
+@media(max-width: 1200px) {
+  .main-router {
+    position: fixed !important;
+    top: 0.7em;
+    border-radius: 1em;
+    z-index: 100;
+    background-color: $primary-color;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;    // margin: 0  0 0.7em;
+    // width: 100%;
   }
 }
 </style>

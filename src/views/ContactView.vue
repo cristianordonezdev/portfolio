@@ -52,19 +52,19 @@ const closeAlertDanger = () => {
     <h1 class="mb-3 text-white">Contacto</h1>
     
     <div class="row">
-      <div class="col-3 flex-column">
+      <div class="col-12 col-lg-5 col-xl-3 flex-column">
 
         <div class="card" v-for="con in contact" :key="con.icon">
           <i :class="con.icon" class="icon-contact"></i>
-          <h5 class="m-0">{{ con.label }}</h5>
+          <h5 class="m-0 text-wrap">{{ con.label }}</h5>
         </div>
       </div>
 
-      <div class="col-9 ps-5">
+      <div class="col-12 col-lg-7 col-xl-9 ps-md-5">
         <h3 class="text-white mb-4">¿Cómo puedo Ayudarte?</h3>
 
         <vee-form class="row" ref="form" @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }">
-          <div class="col-6">
+          <div class="col-12 col-sm-6">
             <div class="form-floating mb-4">
               <vee-field name="name" type="text" class="form-control" id="floatingInput" placeholder="nombre" :class="{ 'is-invalid': errors.name }"/>
               <label for="floatingInput">Nombre</label>
@@ -77,13 +77,13 @@ const closeAlertDanger = () => {
               <div class="invalid-feedback">{{errors.email}}</div>
             </div>
             
-            <div class="form-floating">
+            <div class="form-floating mb-4 mb-sm-0">
               <vee-field name="subject" type="text" class="form-control" id="floatingInput" placeholder="Asunto" :class="{ 'is-invalid': errors.subject }"/>
               <label for="floatingInput">Asunto</label>
               <div class="invalid-feedback">{{errors.subject}}</div>
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-12 col-sm-6">
             <vee-field name="message" v-slot="{ field, errors }" type="text" class="">
               <div class="form-floating h-100">
                 <textarea v-bind="field" class="form-control text-area h-100"  placeholder="Mensaje" id="floatingTextarea2" :class="{ 'is-invalid': errors.length > 0 }"></textarea>
@@ -117,6 +117,13 @@ const closeAlertDanger = () => {
   .text-area {
     height: 100% !important;
   }
+  .text-wrap {
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .button-submit {
     margin-bottom: 2em;
     &:hover {
@@ -141,5 +148,10 @@ const closeAlertDanger = () => {
       margin-bottom: 0.4em;
     }
   }
+}
+@media(max-width: 1000px) {
+ .main-container-home {
+  padding: 1em;
+ }
 }
 </style>

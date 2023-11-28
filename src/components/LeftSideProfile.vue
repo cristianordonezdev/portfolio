@@ -13,7 +13,7 @@ const social_networks = ref([
   <main class="main-profile">
     <img src="./../assets/img/profile.jpg" alt="" class="profile">
 
-    <h1 class="mt-5">Cristian Ordoñez</h1>
+    <h1 class="mt-5 text-center">Cristian Ordoñez</h1>
     <p class="main-dedicate">Full-Stack Developer</p>
     <div class="d-flex mb-5">
       <a :href="i.url"  target="_blank" v-for="i in social_networks" :key="i.icon" class="text-white">
@@ -35,6 +35,8 @@ const social_networks = ref([
   justify-content: center;
   align-items: center;
   padding: 2em 0;
+  border-top-left-radius: 2em;
+  border-bottom-left-radius: 2em;
   color: rgba(255, 255, 255, 0.863);
   .profile {
     height: 200px;
@@ -65,6 +67,24 @@ const social_networks = ref([
       background-color: $secondary-color;
       color: white;
       
+    }
+  }
+}
+@media(max-width: 1200px) {
+ .main-profile {
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 2em;
+    border-top-left-radius: 2em;
+ }
+}
+@media(max-width: 1000px) {
+  .main-profile {
+    justify-content: start;
+    height: auto;
+   
+    .profile {
+      width: 150px;
+      height: 150px;
     }
   }
 }
