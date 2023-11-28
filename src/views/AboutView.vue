@@ -62,7 +62,7 @@ const list_data = ref([
         <div class="col-12 col-md-6">
           <h3>Formación</h3>
           <p class="about">Me formé en la Universidad Autónoma del Estado de México (UAEMex), donde estudié la carrera de Ingeniería en Sistemas Inteligentes.
-            Siempre fui un estudiante destacado en las clases de programación. Más tarde tomé decisión de dedicarme al desarrollo web y formarme por mi cuenta. <br/>
+            Siempre fui un estudiante destacado en las clases de programación. Más tarde tomé la decisión de dedicarme al desarrollo web y formarme por mi cuenta. <br/>
             A pesar de que concluí mis estudios universitarios exitosamente, yo seguí formándome con cursos que compraba en plataformas Curseras.
           </p>
           <p class="about">
@@ -93,5 +93,10 @@ const list_data = ref([
   .logo-clients {
     width: 200px;
   }
+}
+@media(max-width: 1000px) {
+ .main-container-home {
+    padding: 1em;
+ }
 }
 </style>

@@ -97,6 +97,11 @@ const image = "@/assets/img/OLC.jpeg"
     grid-gap: 2rem;
   }
 }
+@media(max-width: 1000px) {
+ .main-container-home {
+  padding: 1em;
+ }
+}
 @media(max-width: 750px) {
  .grid {
     grid-template-columns: repeat(2, 1fr) !important;

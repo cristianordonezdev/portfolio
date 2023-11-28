@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 const social_networks = ref([
-  {icon: 'bi bi-linkedin icon', url: 'https://www.linkedin.com/in/cristian-ram%C3%B3n-ordo%C3%B1ez-16b928191/'},
+  {icon: 'bi bi-linkedin icon', url: 'https://www.linkedin.com/in/cristianordonezdev/'},
   {icon: 'bi bi-github icon ms-3', url: 'https://github.com/cristianordonezdev'},
   {icon: 'bi bi-instagram icon ms-3', url: 'https://www.instagram.com/naitsirc_nomar/'}
 ])
@@ -11,7 +11,7 @@ const social_networks = ref([
 
 <template>
   <main class="main-profile">
-    <img src="./../assets/img/profile.jpg" alt="" class="profile">
+    <img src="./../assets/img/profile_image.png" alt="" class="profile">
 
     <h1 class="mt-5 text-center">Cristian Ordoñez</h1>
     <p class="main-dedicate">Full-Stack Developer</p>
@@ -42,7 +42,6 @@ const social_networks = ref([
     height: 200px;
     width: 200px;
     border-radius: 100%;
-    object-fit: cover;
   }
   .main-dedicate {
     font-size: 20px;
