@@ -31,7 +31,7 @@ const list_data = ref([
           <p class="about">Hola, soy Cristian Ramón Hernández Ordoñez y soy un desarrollador web Full-Stack mexicano.
             Soy apasionado con la programación, autodidacta, con mucha tolerancia y con gran capacidad para trabajar en equipo.
           </p>
-          <p>
+          <p class="about">
             Me encantan los retos y los problemas difíciles, siempre estoy buscando la forma de superarme a mí mismo.
           </p>
         </div>
@@ -49,16 +49,14 @@ const list_data = ref([
         <div class="col-12 col-md-6">
           <h3>Programación</h3>
           <p class="about">
-            Soy apasionado de la programación, constantemente me gusta ver las nuevas tecnologías y probarlas en proyectos personales a fin de aprenderlas. Siempre me encantó resolver problemas y algoritmos. <br/>
-            
-            
+            Soy apasionado de la programación, constantemente me gusta ver las nuevas tecnologías y probarlas en proyectos personales a fin de aprenderlas. Siempre me encantó resolver problemas y algoritmos. <br/>          
   
           </p>
-          <p>El primer Lenguaje de programación que aprendí fue Java. Con Java fui capaz de entender muy bien los fundamentos, el orientado a objetos y la estructura de datos de la programación. 
+          <p class="about">El primer Lenguaje de programación que aprendí fue Java. Con Java fui capaz de entender muy bien los fundamentos, el orientado a objetos y la estructura de datos de la programación. 
             <br/>
-            Después intenté aprender diferentes tipos de lenguaje programación para encontrar mi favorito (Python, PHP, JavaScript, C#). Sin embargo, tuve una gran inmersión en JavaScript. 
+            Después intenté aprender otros lenguajes de programación para encontrar mi favorito (Python, PHP, JavaScript, C#). Sin embargo, tuve una gran inmersión en JavaScript. 
           </p>
-          <p>Actualmente la mayoría de los Frameworks con los que trabajo son de JavaScript.
+          <p class="about">Actualmente la mayoría de los Frameworks con los que trabajo son de JavaScript.
             Concluí que JavaScript al final siempre lo tendría que manejar por el Front End y sería mi favorito para esa parte, no obstante el favorito para hacer Back End ha sido C# con la tecnología ASP.NET Core.</p>
         </div>
         <div class="col-12 col-md-6">
@@ -67,7 +65,7 @@ const list_data = ref([
             Siempre fui un estudiante destacado en las clases de programación. Más tarde tomé decisión de dedicarme al desarrollo web y formarme por mi cuenta. <br/>
             A pesar de que concluí mis estudios universitarios exitosamente, yo seguí formándome con cursos que compraba en plataformas Curseras.
           </p>
-          <p>
+          <p class="about">
             Estudié Ingles por 2 años y medio en el Centro de Educación de Lenguas Extranjeras de la Dirección de Formación en Lenguas Extranjeras del Instituto Politécnico Nacional (IPN) - (CELEX). Donde alcancé a obtener
             un nivel de inglés conversacional.
           </p>
