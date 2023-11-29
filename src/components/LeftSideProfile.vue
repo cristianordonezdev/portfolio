@@ -6,6 +6,9 @@ const social_networks = ref([
   {icon: 'bi bi-github icon ms-3', url: 'https://github.com/cristianordonezdev'},
   {icon: 'bi bi-instagram icon ms-3', url: 'https://www.instagram.com/naitsirc_nomar/'}
 ])
+const openCV = (): void => {
+  window.open('https://drive.google.com/drive/folders/1GNSo15QDaBpClCRMtk8PAwECZKgIeFXv?usp=drive_link', '_blank');
+}
 
 </script>
 
@@ -21,7 +24,7 @@ const social_networks = ref([
       </a>
 
     </div>
-    <button type="button" class="btn btn-outline-light button-download">Descargar CV</button>
+    <button type="button" class="btn btn-outline-light button-download" @click="openCV()">Descargar CV</button>
 
     <small>&copy; {{ new Date().getFullYear() }} Cristian Ordoñez </small>
   </main>
