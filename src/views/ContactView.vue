@@ -11,7 +11,7 @@ const show_alert_danger = ref(false)
 
 const contact = ref([
   {icon: 'bi bi-telephone-fill', label: '5513040652'},
-  {icon: 'bi bi-envelope-fill', label: 'cristian.her.ord@gmail.com'},
+  {icon: 'bi bi-envelope-fill', label: 'cristian@cristianordonezdev.com'},
   {icon: 'bi bi-geo-alt-fill', label: 'Ciudad de México'}
 ])
 

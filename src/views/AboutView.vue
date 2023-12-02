@@ -15,7 +15,7 @@ const age = (): number => {
 const list_data = ref([
   {strong: 'Edad', value: age()},
   {strong: 'Pais', value: 'México'},
-  {strong: 'Correo', value: 'cristian.her.ord@gmail.com'},
+  {strong: 'Correo', value: 'cristian@cristianordonezdev.com'},
   {strong: 'Teléfono', value: '5513040652'},
 ])
 
