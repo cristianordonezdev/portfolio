@@ -49,71 +49,77 @@ const closeAlertDanger = () => {
 
 <template>
   <main class="main-container-home">
-    <h1 class="mb-3 text-white">Contacto</h1>
+    <div class="overflow-scrolls">
+      <h1 class="mb-3 text-white">Contacto</h1>
     
-    <div class="row">
-      <div class="col-12 col-lg-5 col-xl-3 flex-column">
+      <div class="row">
+        <div class="col-12 col-lg-5 col-xl-3 flex-column">
 
-        <div class="card" v-for="con in contact" :key="con.icon">
-          <i :class="con.icon" class="icon-contact"></i>
-          <h5 class="m-0 text-wrap">{{ con.label }}</h5>
-        </div>
-      </div>
-
-      <div class="col-12 col-lg-7 col-xl-9 ps-md-5">
-        <h3 class="text-white mb-4">¿Cómo puedo Ayudarte?</h3>
-
-        <vee-form class="row" ref="form" @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }">
-          <div class="col-12 col-sm-6">
-            <div class="form-floating mb-4">
-              <vee-field name="name" type="text" class="form-control" id="floatingInput" placeholder="nombre" :class="{ 'is-invalid': errors.name }"/>
-              <label for="floatingInput">Nombre</label>
-              <div class="invalid-feedback">{{errors.name}}</div>
-            </div>
-
-            <div class="form-floating mb-4">
-              <vee-field name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" :class="{ 'is-invalid': errors.email }"/>
-              <label for="floatingInput">Email</label>
-              <div class="invalid-feedback">{{errors.email}}</div>
-            </div>
-            
-            <div class="form-floating mb-4 mb-sm-0">
-              <vee-field name="subject" type="text" class="form-control" id="floatingInput" placeholder="Asunto" :class="{ 'is-invalid': errors.subject }"/>
-              <label for="floatingInput">Asunto</label>
-              <div class="invalid-feedback">{{errors.subject}}</div>
-            </div>
+          <div class="card" v-for="con in contact" :key="con.icon">
+            <i :class="con.icon" class="icon-contact"></i>
+            <h5 class="m-0 text-wrap">{{ con.label }}</h5>
           </div>
-          <div class="col-12 col-sm-6">
-            <vee-field name="message" v-slot="{ field, errors }" type="text" class="">
-              <div class="form-floating h-100">
-                <textarea v-bind="field" class="form-control text-area h-100"  placeholder="Mensaje" id="floatingTextarea2" :class="{ 'is-invalid': errors.length > 0 }"></textarea>
-                <label for="floatingTextarea2">Comments</label>
-                <div class="invalid-feedback">{{errors[0]}}</div>
+        </div>
+
+        <div class="col-12 col-lg-7 col-xl-9 ps-md-5">
+          <h3 class="text-white mb-4">¿Cómo puedo Ayudarte?</h3>
+
+          <vee-form class="row" ref="form" @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }">
+            <div class="col-12 col-sm-6">
+              <div class="form-floating mb-4">
+                <vee-field name="name" type="text" class="form-control" id="floatingInput" placeholder="nombre" :class="{ 'is-invalid': errors.name }"/>
+                <label for="floatingInput">Nombre</label>
+                <div class="invalid-feedback">{{errors.name}}</div>
               </div>
-            </vee-field>
-          </div>
 
-          <div class="col-12 mt-4">
-            <button type="submit" class="btn btn-outline-light button-submit w-100" :disabled="isSubmitting">Enviar</button>
+              <div class="form-floating mb-4">
+                <vee-field name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" :class="{ 'is-invalid': errors.email }"/>
+                <label for="floatingInput">Email</label>
+                <div class="invalid-feedback">{{errors.email}}</div>
+              </div>
+              
+              <div class="form-floating mb-4 mb-sm-0">
+                <vee-field name="subject" type="text" class="form-control" id="floatingInput" placeholder="Asunto" :class="{ 'is-invalid': errors.subject }"/>
+                <label for="floatingInput">Asunto</label>
+                <div class="invalid-feedback">{{errors.subject}}</div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <vee-field name="message" v-slot="{ field, errors }" type="text" class="">
+                <div class="form-floating h-100">
+                  <textarea v-bind="field" class="form-control text-area h-100"  placeholder="Mensaje" id="floatingTextarea2" :class="{ 'is-invalid': errors.length > 0 }"></textarea>
+                  <label for="floatingTextarea2">Comments</label>
+                  <div class="invalid-feedback">{{errors[0]}}</div>
+                </div>
+              </vee-field>
+            </div>
+
+            <div class="col-12 mt-4">
+              <button type="submit" class="btn btn-outline-light button-submit w-100" :disabled="isSubmitting">Enviar</button>
+            </div>
+          </vee-form>
+          <div class="alert alert-success alert-dismissible fade show" role="alert" v-if="show_alert">
+            <strong>Genial!</strong> He recibido tu correo. Pronto me pongo en contacto contigo. 😀😊
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" @click="closeAlert()"></button>
           </div>
-        </vee-form>
-        <div class="alert alert-success alert-dismissible fade show" role="alert" v-if="show_alert">
-          <strong>Genial!</strong> He recibido tu correo. Pronto me pongo en contacto contigo. 😀😊
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" @click="closeAlert()"></button>
-        </div>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert" v-if="show_alert_danger">
-          <strong>Ups!</strong> Parece que no  se pudo enviar tu correo. 😢😭 Quiza puedas contactarme de otra manera.
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" @click="closeAlertDanger()"></button>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert" v-if="show_alert_danger">
+            <strong>Ups!</strong> Parece que no  se pudo enviar tu correo. 😢😭 Quiza puedas contactarme de otra manera.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" @click="closeAlertDanger()"></button>
+          </div>
         </div>
       </div>
     </div>
-   
   </main>
 </template>
 <style lang="scss" scoped>
 .main-container-home {
   padding: 2em;
-
+  height: 100%;
+  .overflow-scrolls {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
   .text-area {
     height: 100% !important;
   }

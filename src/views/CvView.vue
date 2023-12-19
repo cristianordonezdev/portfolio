@@ -24,10 +24,10 @@ const lines: any = ref(
       name: 'Experiencia',
       line: [
         {
-          year: '2021', 
-          year_description: 'BrandMe CrowMarketing',
-          title: 'Desarrollador Front End JR',
-          title_description: 'Se buscaba crear la mejor plataforma latinoaméricana que conectara Influencers con Marcas.'
+          year: '2023', 
+          year_description: 'Palacio de Hierro',
+          title: 'Desarrollador Back End',
+          title_description: 'Desarrollo de software de transacciones y gestión de restaurantes Palacio de Hierro, en sistemas Micros POS de Oracle.'
         },
         {
           year: '2023', 
@@ -40,6 +40,12 @@ const lines: any = ref(
           year_description: 'Proyecto',
           title: 'Desarrollador Freelancer Front End',
           title_description: 'Se desarrollo un software para impulsar redes sociales de Influencers.'
+        },
+        {
+          year: '2021', 
+          year_description: 'BrandMe CrowMarketing',
+          title: 'Desarrollador Front End JR',
+          title_description: 'Se buscaba crear la mejor plataforma latinoaméricana que conectara Influencers con Marcas.'
         },
       ]
     }
@@ -55,7 +61,8 @@ const habilities: any = ref([
   {number: 90, label: 'TailwindCSS'},
   {number: 90, label: 'TypeScript'},
   {number: 70, label: 'NodeJS'},
-  {number: 60, label: 'ASP.NET core'},
+  {number: 70, label: 'ASP.NET core'},
+  {number: 60, label: 'Java'},
   {number: 75, label: 'MySQL'}
 ])
 
