@@ -22,8 +22,7 @@ const profesional_projects: any = ref(
         new URL('@/assets/img/ba2.png', import.meta.url),
         new URL('@/assets/img/ba3.png', import.meta.url),
       ],
-      url: 'http://app.saludaplus.com/',
-      is_in_progress: true,
+      url: 'https://sandboxuser.saludaplus.com/beneficios',
     },
     {
       name: 'Crece tus redes',
