@@ -19,7 +19,7 @@ const router = createRouter({
       component: () => import('@/views/CvView.vue')
     },
     {
-      path: '/portfolio',
+      path: '/portfolio/',
       name: 'portfolio',
       component: () => import('@/views/PortfolioView.vue')
     },
@@ -27,6 +27,11 @@ const router = createRouter({
       path: '/contact',
       name: 'contact',
       component: () => import('@/views/ContactView.vue')
+    },
+    {
+      path: '/apps/timer-earn',
+      name: 'app_time_earn',
+      component: () => import('@/views/apps/TimerEarn.vue')
     },
   ]
 })
