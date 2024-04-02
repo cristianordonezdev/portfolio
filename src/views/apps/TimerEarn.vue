@@ -5,7 +5,7 @@ const seconds = ref(0);
 const minutes = ref(0);
 const hours = ref(0);
 const is_not_paused = ref(true)
-const interval = ref(null)
+const interval = ref<any>(null)
 const earned = ref(0)
 const per_minute = ref(0)
 
