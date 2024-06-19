@@ -10,8 +10,8 @@ const show_alert_danger = ref(false)
 
 
 const contact = ref([
-  {icon: 'bi bi-telephone-fill', label: '5513040652'},
-  {icon: 'bi bi-envelope-fill', label: 'cristian@cristianordonezdev.com'},
+  {icon: 'bi bi-telephone-fill', label: '+52 5513040652'},
+  {icon: 'bi bi-envelope-fill', label: 'cristian.her.ord@gmail.com'},
   {icon: 'bi bi-geo-alt-fill', label: 'Ciudad de México'}
 ])
 
@@ -30,10 +30,12 @@ const onSubmit: any = (values: { name: any; email: any; subject: any; message: a
     message: values.message
   };
   emailjs.send(emailjs_configuration.service_id, emailjs_configuration.template_id, templateParams, emailjs_configuration.public_id)
-        .then(() => {
+        .then((response) => {
+          console.log(response)
           resetForm();
           show_alert.value = true;
-        }, () => {
+        }, (error) => {
+          console.log(error)
           show_alert_danger.value = true;
         });
 }
