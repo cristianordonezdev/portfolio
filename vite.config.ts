@@ -10,6 +10,10 @@ export default defineConfig({
     vue(),
     vueJsx(),
   ],
+  server: {
+    host: true, // Esto permitirá que Vite escuche en 0.0.0.0
+    port: 5173  // Puedes especificar el puerto que quieras, pero asegúrate de que coincida con el expuesto en Docker
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
