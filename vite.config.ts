@@ -12,7 +12,10 @@ export default defineConfig({
   ],
   server: {
     host: true, // Esto permitirá que Vite escuche en 0.0.0.0
-    port: 5173  // Puedes especificar el puerto que quieras, pero asegúrate de que coincida con el expuesto en Docker
+    port: 5173,  // Puedes especificar el puerto que quieras, pero asegúrate de que coincida con el expuesto en Docker
+    watch: {
+      usePolling: true,  // Usa polling para detectar cambios en archivos
+    },
   },
   resolve: {
     alias: {
