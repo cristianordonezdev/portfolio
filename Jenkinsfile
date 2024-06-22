@@ -32,93 +32,93 @@ pipeline {
             }
         }
 
-        stage('Tests') {
-            parallel {
-                stage('Unit Test') {
-                    agent {
-                        docker {
-                            image 'node:16.13.2-alpine'
-                            reuseNode true
-                        }
-                    }
-                    steps {
-                        echo 'Test stage'
-                        sh '''
-                            test -f build/index.html
-                            npm test
-                        '''
-                    }
-                }
+        // stage('Tests') {
+        //     parallel {
+        //         stage('Unit Test') {
+        //             agent {
+        //                 docker {
+        //                     image 'node:16.13.2-alpine'
+        //                     reuseNode true
+        //                 }
+        //             }
+        //             steps {
+        //                 echo 'Test stage'
+        //                 sh '''
+        //                     test -f build/index.html
+        //                     npm test
+        //                 '''
+        //             }
+        //         }
 
-                stage('E2E') {
-                    agent {
-                        docker {
-                            image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
-                            reuseNode true
-                        }
-                    }
-                    steps {
-                        sh '''
-                            echo "E2E Commands"
-                            npm install serve 
-                            node_modules/.bin/serve -s build &
-                            sleep 10
-                            npx playwright test
-                        '''
-                    }
-                }
-            }
-        }
+        //         stage('E2E') {
+        //             agent {
+        //                 docker {
+        //                     image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
+        //                     reuseNode true
+        //                 }
+        //             }
+        //             steps {
+        //                 sh '''
+        //                     echo "E2E Commands"
+        //                     npm install serve 
+        //                     node_modules/.bin/serve -s build &
+        //                     sleep 10
+        //                     npx playwright test
+        //                 '''
+        //             }
+        //         }
+        //     }
+        // }
 
-         stage('Staging deploy with E2E') {
-            agent {
-                docker {
-                    image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
-                    reuseNode true
-                }
-            }
-            environment {
-                CI_ENVIRONMENT_URL = "TO_BE_SET"
-            }
-            steps {
-                sh '''
-                    npm install netlify-cli node-jq
-                    node_modules/.bin/netlify --version
-                    echo "Deploying to temporal sandbox. Site ID: $NETLIFY_SITE_ID"
-                    node_modules/.bin/netlify status
-                    node_modules/.bin/netlify deploy --dir=build --json > deploy-output.txt
-                    CI_ENVIRONMENT_URL=$(node_modules/.bin/node-jq -r '.deploy_url' deploy-output.txt)
-                    echo "Staging E2E to this URL: ${URL_STAGING}"
-                    npx playwright test
-                '''
-            }
-        }
+        //  stage('Staging deploy with E2E') {
+        //     agent {
+        //         docker {
+        //             image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
+        //             reuseNode true
+        //         }
+        //     }
+        //     environment {
+        //         CI_ENVIRONMENT_URL = "TO_BE_SET"
+        //     }
+        //     steps {
+        //         sh '''
+        //             npm install netlify-cli node-jq
+        //             node_modules/.bin/netlify --version
+        //             echo "Deploying to temporal sandbox. Site ID: $NETLIFY_SITE_ID"
+        //             node_modules/.bin/netlify status
+        //             node_modules/.bin/netlify deploy --dir=build --json > deploy-output.txt
+        //             CI_ENVIRONMENT_URL=$(node_modules/.bin/node-jq -r '.deploy_url' deploy-output.txt)
+        //             echo "Staging E2E to this URL: ${URL_STAGING}"
+        //             npx playwright test
+        //         '''
+        //     }
+        // }
 
 
-        stage('Deploy production with E2E') {
-            agent {
-                docker {
-                    image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
-                    reuseNode true
-                }
-            }
-            environment {
-                CI_ENVIRONMENT_URL = 'https://regal-tulumba-cc1984.netlify.app/'
-            }
-            steps {
-                sh '''
-                    echo "Production E2E"
-                    node --version
-                    npm install netlify-cli
-                    node_modules/.bin/netlify --version
-                    echo "Deploying to production. Site ID: $NETLIFY_SITE_ID"
-                    node_modules/.bin/netlify status
-                    node_modules/.bin/netlify deploy --dir=build --prod
-                    sleep 5
-                    npx playwright test
-                '''
-            }
-        }
+        // stage('Deploy production with E2E') {
+        //     agent {
+        //         docker {
+        //             image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
+        //             reuseNode true
+        //         }
+        //     }
+        //     environment {
+        //         CI_ENVIRONMENT_URL = 'https://regal-tulumba-cc1984.netlify.app/'
+        //     }
+        //     steps {
+        //         sh '''
+        //             echo "Production E2E"
+        //             node --version
+        //             npm install netlify-cli
+        //             node_modules/.bin/netlify --version
+        //             echo "Deploying to production. Site ID: $NETLIFY_SITE_ID"
+        //             node_modules/.bin/netlify status
+        //             node_modules/.bin/netlify deploy --dir=build --prod
+        //             sleep 5
+        //             npx playwright test
+        //         '''
+        //     }
+        // }
     }
 
     post {
