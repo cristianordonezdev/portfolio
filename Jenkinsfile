@@ -90,36 +90,36 @@ pipeline {
                     node_modules/.bin/netlify status
                     node_modules/.bin/netlify deploy --dir=dist --json > deploy-output.txt
                     CI_ENVIRONMENT_URL=$(node_modules/.bin/node-jq -r '.deploy_url' deploy-output.txt)
-                    echo "Staging E2E to this URL: ${URL_STAGING}"
-                    npx playwright test
+                    echo "Staging E2E to this URL: ${CI_ENVIRONMENT_URL}"
+                    #npx playwright test
                 '''
             }
         }
 
 
-        // stage('Deploy production with E2E') {
-        //     agent {
-        //         docker {
-        //             image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
-        //             reuseNode true
-        //         }
-        //     }
-        //     environment {
-        //         CI_ENVIRONMENT_URL = 'https://regal-tulumba-cc1984.netlify.app/'
-        //     }
-        //     steps {
-        //         sh '''
-        //             echo "Production E2E"
-        //             node --version
-        //             npm install netlify-cli
-        //             node_modules/.bin/netlify --version
-        //             echo "Deploying to production. Site ID: $NETLIFY_SITE_ID"
-        //             node_modules/.bin/netlify status
-        //             node_modules/.bin/netlify deploy --dir=build --prod
-        //             sleep 5
-        //             npx playwright test
-        //         '''
-        //     }
-        // }
+        stage('Deploy production with E2E') {
+            agent {
+                docker {
+                    image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
+                    reuseNode true
+                }
+            }
+            environment {
+                CI_ENVIRONMENT_URL = 'https://regal-tulumba-cc1984.netlify.app/'
+            }
+            steps {
+                sh '''
+                    echo "Production E2E"
+                    node --version
+                    npm install netlify-cli
+                    node_modules/.bin/netlify --version
+                    echo "Deploying to production. Site ID: $NETLIFY_SITE_ID"
+                    node_modules/.bin/netlify status
+                    node_modules/.bin/netlify deploy --dir=dist --prod
+                    #sleep 5
+                    #npx playwright test
+                '''
+            }
+        }
     }
 }
