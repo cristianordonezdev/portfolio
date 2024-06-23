@@ -88,7 +88,7 @@ pipeline {
                     node_modules/.bin/netlify --version
                     echo "Deploying to temporal sandbox. Site ID: $NETLIFY_SITE_ID"
                     node_modules/.bin/netlify status
-                    node_modules/.bin/netlify deploy --dir=build --json > deploy-output.txt
+                    node_modules/.bin/netlify deploy --dir=dist --json > deploy-output.txt
                     CI_ENVIRONMENT_URL=$(node_modules/.bin/node-jq -r '.deploy_url' deploy-output.txt)
                     echo "Staging E2E to this URL: ${URL_STAGING}"
                     npx playwright test
