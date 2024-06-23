@@ -31,6 +31,9 @@ pipeline {
                 '''
             }
         }
+        
+        // IN THIS CASE I DONT HAVE TEST IN MY PROJECT. I HAVE BETTER TO DO IT
+
 
         stage('Tests') {
             parallel {
@@ -45,7 +48,7 @@ pipeline {
                         echo 'Test stage'
                         sh '''
                             test -f dist/index.html
-                            npm test
+                            // npm test
                         '''
                     }
                 }
