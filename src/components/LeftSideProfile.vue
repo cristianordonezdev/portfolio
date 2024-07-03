@@ -14,7 +14,7 @@ const openCV = (): void => {
 
 <template>
   <main class="main-profile">
-    <img src="./../assets/img/profile_image.png" alt="" class="profile">
+    <img src="./../assets/img/profile_image.png" alt="cristian ordoñez" class="profile">
 
     <h1 class="mt-5 text-center">Cristian Ordoñez</h1>
     <p class="main-dedicate">Full-Stack Developer</p>
