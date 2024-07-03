@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import LeftSideProfile from '@/components/LeftSideProfile.vue'
+import LeftSideProfile from './components/LeftSideProfile.vue'
 import RouterMenu from './components/RouterMenu.vue';
 
 </script>

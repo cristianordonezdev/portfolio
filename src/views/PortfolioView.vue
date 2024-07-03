@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import CardProjects from '@/components/CardProjects.vue';
+import CardProjects from '../components/CardProjects.vue';
 
 const profesional_projects: any = ref(
   [
