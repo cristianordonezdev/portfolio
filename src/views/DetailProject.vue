@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { projects } from '../libs/utils'
-import { useRoute } from 'vue-router'
+// import { ref, onMounted } from 'vue';
+// import { projects } from '../libs/utils'
+// import { useRoute } from 'vue-router'
 
 
-const route = useRoute()
+// const route = useRoute()
 
-const project = ref();
+// const project = ref();
 
-onMounted((): void => {
-  project.value = projects.find((i: any) => i.slug === route.params.project)
-})
+// onMounted((): void => {
+//   project.value = projects.find((i: any) => i.slug === route.params.project)
+// })
 
 </script>
 
 <template>
   <main class="text-white main-container-home">
-    <div class="overflow">
+    <!-- <div class="overflow">
       <h1 class="mb-3">{{  }}</h1>
       
 
-    </div>
+    </div> -->
 
   </main>
 </template>
