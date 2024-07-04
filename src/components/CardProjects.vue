@@ -1,13 +1,15 @@
 <script setup lang="ts">
-// declare var require: any
+
 import { ref, watch, onBeforeMount } from 'vue';
-// declare var require: any
-// import image from '@/assets/img/OLC.jpeg';
+import { useRouter } from 'vue-router'
+
 
 const props = defineProps({
   data: Object,
 })
 
+
+const router = useRouter();
 
 let main_interval = ref<any>(null)
 let index_image = ref<number>(0)
@@ -47,7 +49,7 @@ const mouseLeave = (): void => {
   
 }
 const redirect = (route: string): void => {
-  window.open(route, '_blank');
+  router.push({name: 'detail_project', params: { project: route}})
 }
 </script>
 
@@ -56,7 +58,7 @@ const redirect = (route: string): void => {
     class="main-container-card position-relative" 
     @mouseover="mouseHover" 
     @mouseleave="mouseLeave" 
-    @click="redirect(props.data?.url)"
+    @click="redirect(props.data?.slug)"
   >
   <div class="container-coming-redirect" v-if="props.data?.is_in_progress">
     <h5>Próximamente</h5>
