@@ -32,7 +32,6 @@ describe('left side profile component tests', () => {
 
     await router.isReady();
 
-    // Verifica que todos los elementos de navegación se renderizan
     const links = wrapper.findAllComponents({ name: 'RouterLink' });
     expect(links.length).toBe(navigation_items.length);
 
