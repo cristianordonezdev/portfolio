@@ -57,13 +57,13 @@ const mouseLeave = (): void => {
     @mouseleave="mouseLeave" 
   >
   <div class="container-coming-redirect" v-if="props.data?.is_in_progress">
-    <h5>Próximamente</h5>
+    <h5 class="title-coming-soon">Próximamente</h5>
   </div>
   <div class="container-title-redirect">
     <h5>{{ props.data?.name }}</h5>
     <i class="bi bi-box-arrow-up-right ms-2"></i>
   </div>
-  <div class="">
+  <div>
     <Transition :name="first_time_transition ? 'fade' : ''">
       <div :key="current_image">
         <img 

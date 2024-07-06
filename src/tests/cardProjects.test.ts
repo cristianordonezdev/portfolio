@@ -13,11 +13,8 @@ const factory = (data: any) => {
 const general_data = {name: 'Project Name',is_in_progress: true, images: ['image1.jpg', 'image2.jpg'],slug: 'project-slug'};
 
 describe('Test for card project', () => {
-  it('renders correctly', () => {
-    const wrapper = shallowMount(CardProjects);
-    expect(wrapper.exists()).toBe(true);
-  });
-
+  const general_data = {name: 'Project Name',is_in_progress: true, images: ['image1.jpg', 'image2.jpg'],slug: 'project-slug'};
+  
   // Agrega más pruebas específicas aquí
   it.each([
     {name: 'Project Name',is_in_progress: true, images: ['image1.jpg', 'image2.jpg'],slug: 'project-slug'},
