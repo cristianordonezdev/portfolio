@@ -8,7 +8,7 @@ describe('About view tests', () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  it('It is correct my age', () => {
+  it('calculates the correct age based on a fixed birthday', () => {
     const wrapper = shallowMount(AboutView);
 
     const today = new Date();
@@ -28,7 +28,7 @@ describe('About view tests', () => {
 
     const li_items = wrapper.findAll('li');
     expect(li_items.length).toBe(data.length);
-    
+
     li_items.forEach((element, index) => {
       expect(element.text()).toBe(`${data[index].strong} ${data[index].value}`);
       console.log(element.text())
