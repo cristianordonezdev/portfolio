@@ -48,9 +48,6 @@ const mouseLeave = (): void => {
   main_interval.value = null;
   
 }
-// const redirect = (route: string): void => {
-//   router.push({name: 'detail_project', params: { project: route}})
-// }
 </script>
 
 <template>
