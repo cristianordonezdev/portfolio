@@ -48,9 +48,9 @@ const mouseLeave = (): void => {
   main_interval.value = null;
   
 }
-const redirect = (route: string): void => {
-  router.push({name: 'detail_project', params: { project: route}})
-}
+// const redirect = (route: string): void => {
+//   router.push({name: 'detail_project', params: { project: route}})
+// }
 </script>
 
 <template>
@@ -58,16 +58,15 @@ const redirect = (route: string): void => {
     class="main-container-card position-relative" 
     @mouseover="mouseHover" 
     @mouseleave="mouseLeave" 
-    @click="redirect(props.data?.slug)"
   >
   <div class="container-coming-redirect" v-if="props.data?.is_in_progress">
-    <h5>Próximamente</h5>
+    <h5 class="title-coming-soon">Próximamente</h5>
   </div>
   <div class="container-title-redirect">
     <h5>{{ props.data?.name }}</h5>
     <i class="bi bi-box-arrow-up-right ms-2"></i>
   </div>
-  <div class="">
+  <div>
     <Transition :name="first_time_transition ? 'fade' : ''">
       <div :key="current_image">
         <img 
