@@ -31,7 +31,6 @@ describe('About view tests', () => {
 
     li_items.forEach((element, index) => {
       expect(element.text()).toBe(`${data[index].strong} ${data[index].value}`);
-      console.log(element.text())
     });
   })
 });

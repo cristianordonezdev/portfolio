@@ -29,7 +29,6 @@ describe('Test for card project', () => {
 
   it('should start image transition on mouse hover', async () => {
     const wrapper = factory(general_data);
-    console.log('lol', wrapper.vm.$props, '--A', general_data);
     await wrapper.trigger('mouseover');
 
     expect(wrapper.vm.show_animation).toBe(true);

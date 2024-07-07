@@ -73,10 +73,10 @@ const habilities: any = ref([
   <main class="text-white main-container-home">    
     <div class="mb-5 overflow-scrols row">
       <div class="flex-column col-12 col-md-6">
-        <div class="mb-5" v-for="line in lines" :key="line.name">
+        <div class="mb-5 lines-container" v-for="line in lines" :key="line.name">
           <h3 class="mb-4">{{ line.name }}</h3>
           <div class="linea-tiempo">
-            <div class="d-flex mb-3" v-for="(i, index) in line.line" :key="index">
+            <div class="d-flex mb-3 time-line" v-for="(i, index) in line.line" :key="index">
               <div class="momento text-end">
                 <div>
                   <h5>{{i.year}}</h5>
@@ -98,7 +98,7 @@ const habilities: any = ref([
       
       <div class="col-12 col-md-6 mb-5 ps-md-5">
         <h3 class="mb-4">Habilidades de código</h3>
-        <div class="d-flex flex-wrap mb-3" v-for="(i, index) in habilities" :key="index">
+        <div class="d-flex flex-wrap mb-3 habilities" v-for="(i, index) in habilities" :key="index">
           <div class="d-flex justify-content-between w-100">
             <p class="m-0">{{ i.label }}</p>
             <p class="m-0">{{ i.number }}%</p>
