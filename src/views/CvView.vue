@@ -74,7 +74,7 @@ const habilities_: any = ref([
     ]
   },
   {
-    about: 'Data bases',
+    about: 'Bases de datos',
     techs: [
       {icon: new URL('@/assets/icons/mysql.svg', import.meta.url), label: 'MySQL', class: 'bg-white border-100'},
       {icon: new URL('@/assets/icons/postgresql.svg', import.meta.url), label: 'PostgreSQL'},
@@ -122,10 +122,11 @@ const habilities_: any = ref([
       
       <div class="col-12 col-md-6 mb-5 ps-md-5">
         <h3 class="mb-4">Habilidades de código</h3>
-        <div class="d-flex flex-wrap mb-3 habilities" v-for="(i, index) in habilities_" :key="index">
+        <div class="d-flex flex-wrap mb-4 habilities" v-for="(i, index) in habilities_" :key="index">
           <h5 class="w-100 mb-2">{{ i.about }}</h5>
-          <div v-for="tech in i.techs" :key="i.icon">
-            <img :src="tech.icon" :alt="tech.label" class="me-3 mb-3 img-tech" :class="`${tech.class ? tech.class : ''}`"/>
+          <div v-for="tech in i.techs" :key="i.icon" class="me-3 mb-2 container-img-tech">
+            <img :src="tech.icon" :alt="tech.label" class="img-tech" :class="`${tech.class ? tech.class : ''}`"/>
+            <div class="container-label-icon">{{ tech.label }}</div>
           </div>
         </div>
       </div>
@@ -134,13 +135,67 @@ const habilities_: any = ref([
 </template>
 <style lang="scss" scoped>
 .habilities {
-  .img-tech {
-    width: 50px;
-    height: 50px;
-    padding: 0.2em;
-  }
-  .border-100 {
-    border-radius: 100%;
+  .container-img-tech {
+    position: relative;
+
+
+    .img-tech {
+      width: 50px;
+      height: 50px;
+      padding: 0.2em;
+  
+      &:hover {
+        transform: scale(1.2);
+        transition: all 350ms;
+      }
+      &:not(:hover) {
+        transition: all 350ms;
+      }
+    }
+    .border-100 {
+      border-radius: 100%;
+    }
+    .container-label-icon {
+      background-color: #20BA73;
+      position: absolute;
+      top: 6px;
+      left: 3.3em;
+      font-size: 20px;
+      // opacity: 0;
+      z-index: 100;
+      transform: translateX(4em);
+      padding: 0.3em;
+      border-radius: 0.2em;
+      white-space: nowrap;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -10px;
+        transform: translateY(-50%) rotate(90deg);
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent transparent transparent #20BA73;
+      }
+    }
+
+    &:hover {
+      .container-label-icon {
+        opacity: 1;
+        visibility: visible;
+        transition: all 350ms;
+        transform: translateX(0px);
+      }
+    }
+    &:not(:hover) {
+      .container-label-icon {
+        z-index: -1;
+        opacity: 0;
+        transform: translateX(3em);
+        transition: all 200ms;
+      }
+    }
   }
 }
 .main-container-home {
