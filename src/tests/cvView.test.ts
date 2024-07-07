@@ -31,12 +31,15 @@ describe('About view tests', () => {
             expect(element_line.findAll('.descripcion')[1].text()).toBe(data_lines[index].line[index_array].title_description);
         })
 
-        // const habilities = wrapper.findAll('.habilities');
-        // habilities.forEach((element_habilities, index_habilities) => {
-            // expect(element_habilities.findAll('p')[0].text()).toBe(habilities_data[index_habilities].label);
-            // expect(element_habilities.findAll('p')[1].text()).toBe(`${habilities_data[index_habilities].number}%`);
-            // expect(element_habilities.find('.background-progress').attributes('style')).toBe(`width: ${habilities_data[index_habilities].number}%;`);
-        // })
+        const habilities = wrapper.findAll('.habilities');
+        habilities.forEach((element_habilities, index_habilities) => {
+            expect(element_habilities.find('h5').text()).toBe(habilities_data[index_habilities].about);
+
+            element_habilities.findAll('.container-img-tech').forEach((imges, index_images) => {
+              expect(imges.find('img').attributes('src')).toBe(habilities_data[index_habilities].techs[index_images].icon.href);
+              expect(imges.find('.container-label-icon').text()).toBe(habilities_data[index_habilities].techs[index_images].label);
+            })
+        })
     });
   })
 });

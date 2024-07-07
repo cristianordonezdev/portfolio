@@ -51,7 +51,7 @@ const lines: any = ref(
     }
   ]
 )
-const habilities_: any = ref([
+const habilities: any = ref([
   {
     about: 'Front End',
     techs: [
@@ -122,7 +122,7 @@ const habilities_: any = ref([
       
       <div class="col-12 col-md-6 mb-5 ps-md-5">
         <h3 class="mb-4">Habilidades de código</h3>
-        <div class="d-flex flex-wrap mb-4 habilities" v-for="(i, index) in habilities_" :key="index">
+        <div class="d-flex flex-wrap mb-4 habilities" v-for="(i, index) in habilities" :key="index">
           <h5 class="w-100 mb-2">{{ i.about }}</h5>
           <div v-for="tech in i.techs" :key="i.icon" class="me-3 mb-2 container-img-tech">
             <img :src="tech.icon" :alt="tech.label" class="img-tech" :class="`${tech.class ? tech.class : ''}`"/>
