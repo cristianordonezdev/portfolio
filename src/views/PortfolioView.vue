@@ -53,7 +53,7 @@ const image = "@/assets/img/OLC.jpeg"
       <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
           <div class="mt-4 grid">
-            <card-projects :data="card" :image="image" v-for="card in profesional_projects" :key="card.name"></card-projects>
+            <card-projects class="card-projects" :data="card" :image="image" v-for="card in profesional_projects" :key="card.name"></card-projects>
           </div>
         </div>
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>

@@ -20,8 +20,6 @@ describe('left side profile component tests', () => {
   it('renders correctly', () => {
     const wrapper = shallowMount(RouterMenu);
     expect(wrapper.exists()).toBe(true);
-    console.log(routes, 'aqui mis rutas')
-
   });
   it('renders navigation items correctly', async () => {
     const wrapper = mount(RouterMenu, {
