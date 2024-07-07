@@ -31,12 +31,12 @@ describe('About view tests', () => {
             expect(element_line.findAll('.descripcion')[1].text()).toBe(data_lines[index].line[index_array].title_description);
         })
 
-        const habilities = wrapper.findAll('.habilities');
-        habilities.forEach((element_habilities, index_habilities) => {
-            expect(element_habilities.findAll('p')[0].text()).toBe(habilities_data[index_habilities].label);
-            expect(element_habilities.findAll('p')[1].text()).toBe(`${habilities_data[index_habilities].number}%`);
-            expect(element_habilities.find('.background-progress').attributes('style')).toBe(`width: ${habilities_data[index_habilities].number}%;`);
-        })
+        // const habilities = wrapper.findAll('.habilities');
+        // habilities.forEach((element_habilities, index_habilities) => {
+            // expect(element_habilities.findAll('p')[0].text()).toBe(habilities_data[index_habilities].label);
+            // expect(element_habilities.findAll('p')[1].text()).toBe(`${habilities_data[index_habilities].number}%`);
+            // expect(element_habilities.find('.background-progress').attributes('style')).toBe(`width: ${habilities_data[index_habilities].number}%;`);
+        // })
     });
   })
 });

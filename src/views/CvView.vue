@@ -51,21 +51,45 @@ const lines: any = ref(
     }
   ]
 )
-
-const habilities: any = ref([
-  {number: 90, label: 'JavaScript'},
-  {number: 95, label: 'HTML / CSS'},
-  {number: 85, label: 'VueJS'},
-  {number: 70, label: 'Angular'},
-  {number: 95, label: 'BootStrap'},
-  {number: 90, label: 'TailwindCSS'},
-  {number: 90, label: 'TypeScript'},
-  {number: 70, label: 'NodeJS'},
-  {number: 70, label: 'ASP.NET core'},
-  {number: 60, label: 'Java'},
-  {number: 75, label: 'MySQL'}
+const habilities_: any = ref([
+  {
+    about: 'Front End',
+    techs: [
+      {icon: new URL('@/assets/icons/js.svg', import.meta.url), label: 'JavaScript'},
+      {icon: new URL('@/assets/icons/html.svg', import.meta.url), label: 'HTML'},
+      {icon: new URL('@/assets/icons/css.svg', import.meta.url), label: 'CSS'},
+      {icon: new URL('@/assets/icons/vue.svg', import.meta.url), label: 'VueJS'},
+      {icon: new URL('@/assets/icons/angular.svg', import.meta.url), label: 'Angular'},
+      {icon: new URL('@/assets/icons/bootstrap.svg', import.meta.url), label: 'BootStrap'},
+      {icon: new URL('@/assets/icons/tailwindcss.svg', import.meta.url), label: 'TailwindCSS'},
+      {icon: new URL('@/assets/icons/typescript.svg', import.meta.url), label: 'TypeScript'},
+    ]
+  },
+  {
+    about: 'Back End',
+    techs: [
+      {icon: new URL('@/assets/icons/dotnet.svg', import.meta.url), label: 'ASP.NET Core'},
+      {icon: new URL('@/assets/icons/java.svg', import.meta.url), label: 'Java', class: 'bg-white border-100'},
+      {icon: new URL('@/assets/icons/nodejs.svg', import.meta.url), label: 'NodeJS'},
+    ]
+  },
+  {
+    about: 'Bases de datos',
+    techs: [
+      {icon: new URL('@/assets/icons/mysql.svg', import.meta.url), label: 'MySQL', class: 'bg-white border-100'},
+      {icon: new URL('@/assets/icons/postgresql.svg', import.meta.url), label: 'PostgreSQL'},
+      {icon: new URL('@/assets/icons/mongodb.svg', import.meta.url), label: 'MongoDB'},
+    ]
+  },
+  {
+    about: 'DevOps',
+    techs: [
+      {icon: new URL('@/assets/icons/docker.svg', import.meta.url), label: 'Docker'},
+      {icon: new URL('@/assets/icons/jenkins.svg', import.meta.url), label: 'Jenkins'},
+      {icon: new URL('@/assets/icons/cicd.svg', import.meta.url), label: 'CI/CD Pipelines', class: 'bg-white border-100'},
+    ]
+  }
 ])
-
 
 </script>
 
@@ -98,13 +122,11 @@ const habilities: any = ref([
       
       <div class="col-12 col-md-6 mb-5 ps-md-5">
         <h3 class="mb-4">Habilidades de código</h3>
-        <div class="d-flex flex-wrap mb-3 habilities" v-for="(i, index) in habilities" :key="index">
-          <div class="d-flex justify-content-between w-100">
-            <p class="m-0">{{ i.label }}</p>
-            <p class="m-0">{{ i.number }}%</p>
-          </div>
-          <div class="progress w-100" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar background-progress" :style="`width: ${i.number}%`"></div>
+        <div class="d-flex flex-wrap mb-4 habilities" v-for="(i, index) in habilities_" :key="index">
+          <h5 class="w-100 mb-2">{{ i.about }}</h5>
+          <div v-for="tech in i.techs" :key="i.icon" class="me-3 mb-2 container-img-tech">
+            <img :src="tech.icon" :alt="tech.label" class="img-tech" :class="`${tech.class ? tech.class : ''}`"/>
+            <div class="container-label-icon">{{ tech.label }}</div>
           </div>
         </div>
       </div>
@@ -112,6 +134,70 @@ const habilities: any = ref([
   </main>
 </template>
 <style lang="scss" scoped>
+.habilities {
+  .container-img-tech {
+    position: relative;
+
+
+    .img-tech {
+      width: 50px;
+      height: 50px;
+      padding: 0.2em;
+  
+      &:hover {
+        transform: scale(1.2);
+        transition: all 350ms;
+      }
+      &:not(:hover) {
+        transition: all 350ms;
+      }
+    }
+    .border-100 {
+      border-radius: 100%;
+    }
+    .container-label-icon {
+      background-color: #20BA73;
+      position: absolute;
+      top: 6px;
+      left: 3.3em;
+      font-size: 20px;
+      // opacity: 0;
+      z-index: 100;
+      transform: translateX(4em);
+      padding: 0.3em;
+      border-radius: 0.2em;
+      white-space: nowrap;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -10px;
+        transform: translateY(-50%) rotate(90deg);
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent transparent transparent #20BA73;
+      }
+    }
+
+    &:hover {
+      .container-label-icon {
+        opacity: 1;
+        visibility: visible;
+        transition: all 350ms;
+        transform: translateX(0px);
+      }
+    }
+    &:not(:hover) {
+      .container-label-icon {
+        z-index: -1;
+        opacity: 0;
+        transform: translateX(3em);
+        transition: all 200ms;
+      }
+    }
+  }
+}
 .main-container-home {
   padding: 2em;
   height: 100%;
