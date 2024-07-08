@@ -2,7 +2,7 @@
 import { onMounted, ref, watch } from 'vue';
 import CardProjects from '../components/CardProjects.vue';
 import { useRoute, useRouter } from 'vue-router';
-import { profesional_projects } from '../libs/utils';
+import { profesional_projects, personal_projects } from '../libs/utils';
 
 const route = useRoute();
 const router = useRouter();
@@ -10,7 +10,8 @@ const view_projects = ref<boolean>(true);
 const project_selected: any = ref({});
 
 const getProject = (slug: string) => {
-  const project = profesional_projects.find((project: any) => project.slug === slug);
+  const projects = [...profesional_projects, ...personal_projects]
+  const project = projects.find((project: any) => project.slug === slug);
   if (!project) {
     router.push('/portfolio')
     view_projects.value = true;
@@ -31,6 +32,9 @@ onMounted(() => {
     project_selected.value = getProject(slug);
   }
 });
+const redirectToGitHub = (url: string) => {
+  window.open(url, '_blank');
+}
 
 watch(() => route.params.slug_project, (new_slug) => {
   if (!new_slug) handleClick('', true)
@@ -46,7 +50,7 @@ watch(() => route.params.slug_project, (new_slug) => {
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <button class="nav-link active me-2" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Proyectos Profesionales</button>
-          <button class="nav-link" id="nav-profile-tab" disabled data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Proyectos Personales</button>
+          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Proyectos Personales</button>
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
@@ -61,14 +65,39 @@ watch(() => route.params.slug_project, (new_slug) => {
             ></card-projects>
           </div>
         </div>
-        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
+        <div class="tab-pane fade show" id="nav-profile" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="1">
+          <div class="mt-4 grid">
+            <card-projects 
+              class="card-projects" 
+              :data="card" 
+              v-for="card in personal_projects" 
+              :key="card.name"
+              @click="handleClick(card.slug)"
+            ></card-projects>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="overflow detail" v-else>
+      <div class="d-flex justify-content-between mb-3">
+        <h5 class="d-flex"> <span @click="handleClick('', true)" class="d-block me-2 back-action">Regresar</span> | <a :href="project_selected.url" target="_blank" class="main-title"> {{ project_selected.name }} </a></h5>
 
-      <h5 class="d-flex"> <span @click="handleClick('', true)" class="d-block me-2 back-action">Regresar</span> | <a :href="project_selected.url" target="_blank" class="main-title"> {{ project_selected.name }} </a></h5>
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <button type="button" class="btn btn-primary" @click="redirectToGitHub(project_selected.github)" v-if="project_selected.github?.length === 1">
+          <i class="bi bi-github icon me-1"></i>
+          Ver código en GitHub
+        </button>
+
+        <div class="dropdown" v-else-if="project_selected.github?.length > 1">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Ver código en GitHub
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li v-for="i in project_selected.github" :key="i.url" @click="redirectToGitHub(i.url)"><a class="dropdown-item" href="#">{{i.name}}</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" v-if="project_selected.images.length > 0">
         <div class="carousel-inner">
           <div class="carousel-item" :class="{'active': index === 0}" v-for="(image, index) in project_selected.images" :key="index">
             <img :src="image" class="d-block w-100 image-carousel" :alt="image">
@@ -93,6 +122,20 @@ watch(() => route.params.slug_project, (new_slug) => {
         </div>
       </div>
     </div>
+
+    <!-- <h5>Hotel ABC Clon</h5>
+
+    <p>Este proyecto fue creado para ampliar mis conocimientos en desarrollo Full Stack, específicamente en Front End y Back End. Inicialmente, el objetivo era replicar la interfaz visual de una página web de un hotel. A medida que avanzaba en el desarrollo, decidí agregar una sección de administrador que permitiera realizar operaciones CRUD. Para el backend, implementé una API utilizando ASP.NET Core.
+    </p>
+    <h5>Objetivos del Proyecto</h5>
+    <ul>
+      <li>Replicar la interfaz visual de una página web de un hotel.</li>
+      <li>Implementar una sección de administrador para operaciones CRUD.</li>
+      <li>Desarrollar una API utilizando ASP.NET Core.</li>
+    </ul>
+
+    <h5>Valor Agregado</h5>
+    <p>Este proyecto me permitió consolidar mis habilidades en desarrollo Full Stack, mejorando tanto mis conocimientos de frontend como de backend. Además, aprendí la importancia de una comunicación eficaz entre el cliente y el servidor</p> -->
   </main>
 </template>
 <style lang="scss" scoped>
@@ -107,8 +150,6 @@ watch(() => route.params.slug_project, (new_slug) => {
   .main-title {
     color: white;
     display: block;
-    margin-bottom: .5em;
-
     margin-left: 0.3em;
   }
   .carousel {

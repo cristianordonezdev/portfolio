@@ -39,4 +39,3 @@ describe('About view tests', () => {
     expect(cards_projects.length).toBe(data_projects.length);
   })
 });
- 
