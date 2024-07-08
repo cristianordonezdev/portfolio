@@ -1,47 +1,46 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import CardProjects from '../components/CardProjects.vue';
+import { useRoute, useRouter } from 'vue-router';
+import { profesional_projects } from '../libs/utils';
 
-const profesional_projects: any = ref(
-  [
-    {
-      name: 'BrandMe',
-      images: [
-        new URL('@/assets/img/OLC.jpeg', import.meta.url),
-        new URL('@/assets/img/brandme1.png', import.meta.url),
-        new URL('@/assets/img/brandme2.png', import.meta.url),
-        new URL('@/assets/img/brandme3.png', import.meta.url),
-      ],
-      url: 'https://app.brandme.la/',
-      is_in_progress: false,
-    },
-    {
-      name: 'Bacaanda',
-      images: [
-        new URL('@/assets/img/ba1.png', import.meta.url),
-        new URL('@/assets/img/ba2.png', import.meta.url),
-        new URL('@/assets/img/ba3.png', import.meta.url),
-      ],
-      url: 'https://sandboxuser.saludaplus.com/beneficios',
-    },
-    {
-      name: 'Crece tus redes',
-      images: [
-        new URL('@/assets/img/social.jpeg', import.meta.url),
-        new URL('@/assets/img/social1.png', import.meta.url),
-        new URL('@/assets/img/social2.png', import.meta.url),
-      ],
-      url: 'https://sandbox.social.crecetusredes.com',
-      is_in_progress: true,
-    },
-  ]
-)  
-const image = "@/assets/img/OLC.jpeg"
+const route = useRoute();
+const router = useRouter();
+const view_projects = ref<boolean>(true);
+const project_selected: any = ref({});
+
+const getProject = (slug: string) => {
+  const project = profesional_projects.find((project: any) => project.slug === slug);
+  if (!project) {
+    router.push('/portfolio')
+    view_projects.value = true;
+    return;
+  };
+  return project;
+}
+const handleClick = (slug: string, view_pro = false) => {
+  router.push(`/portfolio/${slug}`);
+  project_selected.value = getProject(slug);
+  view_projects.value = view_pro;
+}
+onMounted(() => {
+  console.log('entre')
+  const slug = route.params.slug_project;
+  if (slug && typeof slug === 'string') {
+    view_projects.value = false;
+    project_selected.value = getProject(slug);
+  }
+});
+
+watch(() => route.params.slug_project, (new_slug) => {
+  if (!new_slug) handleClick('', true)
+});
+
 </script>
 
 <template>
   <main class="text-white main-container-home">
-    <div class="overflow">
+    <div class="overflow" v-if="view_projects">
       <h1 class="mb-3">Portafolio</h1>
       
       <nav>
@@ -53,21 +52,80 @@ const image = "@/assets/img/OLC.jpeg"
       <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
           <div class="mt-4 grid">
-            <card-projects class="card-projects" :data="card" :image="image" v-for="card in profesional_projects" :key="card.name"></card-projects>
+            <card-projects 
+              class="card-projects" 
+              :data="card" 
+              v-for="card in profesional_projects" 
+              :key="card.name"
+              @click="handleClick(card.slug)"
+            ></card-projects>
           </div>
         </div>
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
       </div>
     </div>
 
+    <div class="overflow detail" v-else>
+
+      <h5 class="d-flex"> <span @click="handleClick('', true)" class="d-block me-2 back-action">Regresar</span> | <a :href="project_selected.url" target="_blank" class="main-title"> {{ project_selected.name }} </a></h5>
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item" :class="{'active': index === 0}" v-for="(image, index) in project_selected.images" :key="index">
+            <img :src="image" class="d-block w-100 image-carousel" :alt="image">
+          </div>
+          
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="row mt-4">
+        <div v-html="project_selected.description" class="col-9 text-justify"></div>
+        <div class="col-3">
+          <h5>Tecnologías</h5>
+          <span class="badge rounded-pill bg-light text-dark me-1" v-for="tech in project_selected.techs" :key="tech">{{ tech}}</span>
+
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 <style lang="scss" scoped>
+.detail {
+  .back-action {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline
+    }
+  }
+  .main-title {
+    color: white;
+    display: block;
+    margin-bottom: .5em;
+
+    margin-left: 0.3em;
+  }
+  .carousel {
+    background-color: #170F12;
+    border-radius: 1em;
+    .image-carousel {
+      max-height: 45vh;
+      object-fit: contain;
+    }
+  }
+}
 .main-container-home {
   height: 100%;
   .overflow {
     height: 100%;
     overflow-y: scroll;
+    overflow-x: hidden;
   }
   .active {
     color: black !important;
