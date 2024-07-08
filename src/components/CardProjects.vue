@@ -1,15 +1,12 @@
 <script setup lang="ts">
 
 import { ref, watch, onBeforeMount } from 'vue';
-import { useRouter } from 'vue-router'
 
 
 const props = defineProps({
   data: Object,
 })
 
-
-const router = useRouter();
 
 let main_interval = ref<any>(null)
 let index_image = ref<number>(0)
@@ -61,7 +58,6 @@ const mouseLeave = (): void => {
   </div>
   <div class="container-title-redirect">
     <h5>{{ props.data?.name }}</h5>
-    <i class="bi bi-box-arrow-up-right ms-2"></i>
   </div>
   <div>
     <Transition :name="first_time_transition ? 'fade' : ''">

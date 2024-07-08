@@ -124,7 +124,7 @@ const habilities: any = ref([
         <h3 class="mb-4">Habilidades de código</h3>
         <div class="d-flex flex-wrap mb-4 habilities" v-for="(i, index) in habilities" :key="index">
           <h5 class="w-100 mb-2">{{ i.about }}</h5>
-          <div v-for="tech in i.techs" :key="i.icon" class="me-3 mb-2 container-img-tech">
+          <div v-for="tech in i.techs" :key="tech.label" class="me-3 mb-2 container-img-tech">
             <img :src="tech.icon" :alt="tech.label" class="img-tech" :class="`${tech.class ? tech.class : ''}`"/>
             <div class="container-label-icon">{{ tech.label }}</div>
           </div>
