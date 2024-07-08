@@ -56,7 +56,7 @@ const mouseLeave = (): void => {
   <div class="container-coming-redirect" v-if="props.data?.is_in_progress">
     <h5 class="title-coming-soon">Próximamente</h5>
   </div>
-  <div class="container-title-redirect">
+  <div class="container-title-redirect" :class="{'action-animation': current_image}">
     <h5>{{ props.data?.name }}</h5>
   </div>
   <div>
@@ -64,8 +64,10 @@ const mouseLeave = (): void => {
       <div :key="current_image">
         <img 
           class="container-img image-animation-zoom" 
-          :src="current_image" 
+          :src="current_image"
+          v-if="current_image"
         />
+        <div class="container-img" v-else></div>
       </div>
     </Transition>
   </div>
@@ -92,6 +94,7 @@ const mouseLeave = (): void => {
   top: 0;
   transition: transform 4s;
   transform-origin: center;
+  background-color: #c2c2c256;
 }
 .image-animation-zoom:hover {
   transform: scale(1.2);
@@ -123,14 +126,17 @@ const mouseLeave = (): void => {
     bottom: 0;
     width: 100%;
     z-index: 1;
-    transform: translateY(100px);
     display: flex;
     justify-content: center;
     border-bottom-left-radius: 1em;
     border-bottom-right-radius: 1em;
   }
+  .action-animation {
+    transform: translateY(100px);
+
+  }
   &:hover {
-    .container-title-redirect {
+    .action-animation {
       transform: translateY(0px);
       transition: all 500ms;
     }
