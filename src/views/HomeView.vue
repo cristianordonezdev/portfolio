@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <main class="text-white main-container-home">
+  <main class="text-white main-container-home bg-danger">
     <div class="main-title">Cristian Ordoñez</div>
     <p class="main-dedicate">Full-Stack Developer</p>
   </main>
