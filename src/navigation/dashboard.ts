@@ -14,12 +14,13 @@ const navigation_items: INavigation[] = [
   {
     route_name: 'cv',
     title: 'Curriculum',
-    icon: 'bi bi-mortarboard-fill'
+    icon: 'bi bi-mortarboard-fill',
   },
   {
     route_name: 'portfolio',
     title: 'Portafolio',
-    icon: 'bi bi-briefcase-fill'
+    icon: 'bi bi-briefcase-fill',
+    params: { type: 'professional' }
   },
   {
     route_name: 'contact',

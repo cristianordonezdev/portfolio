@@ -12,7 +12,7 @@ const route = useRoute()
       v-for="item in navigation_items" 
       :key="item.route_name" 
       class="px-sm-3 px-2 mx-sm-1 item-navigation" 
-      :to="{name: item.route_name}"
+      :to="item.params ? {name: item.route_name, params: {type: item.params?.type}} : {name: item.route_name}"
     >
       <i :class="`icon-router-menu ${item.icon} ${route.name === item.route_name ? 'active' : ''}`"></i>
     </router-link>
