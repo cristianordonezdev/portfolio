@@ -30,11 +30,17 @@ const handleClick = (slug: string, view_pro = false) => {
 const handleSection = (type: string) => {
   router.push(`/portfolio/${type}`);
   if (type === 'professional') {
-    const tabTrigger = new Tab(document.getElementById('nav-home-tab'));
-    tabTrigger.show();
+    const homeTab = document.getElementById('nav-home-tab');
+    if (homeTab) {
+      const tabTrigger = new Tab(homeTab);
+      tabTrigger.show();
+    }
   } else if (type === 'personal') {
-    const tabTrigger = new Tab(document.getElementById('nav-profile-tab'));
-    tabTrigger.show();
+    const profileTab = document.getElementById('nav-profile-tab');
+    if (profileTab) {
+      const tabTrigger = new Tab(profileTab);
+      tabTrigger.show();
+    }
   }
   view_projects.value = true;
 }
