@@ -2,7 +2,8 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.vue",
-    "tests/**/*.ts"
+    "tests/**/*.ts",
+    "src/shims-bootstrap.d.ts"
   ],
   "exclude": [
     "node_modules"
@@ -16,6 +17,14 @@
     }
   ],
   "compilerOptions": {
-    "types": ["node"]
+    "types": ["node"],
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   }
 }
