@@ -3,6 +3,7 @@ import { onMounted, ref, watch } from 'vue';
 import CardProjects from '../components/CardProjects.vue';
 import { useRoute, useRouter } from 'vue-router';
 import { profesional_projects, personal_projects } from '../libs/utils';
+import { Tab } from 'bootstrap';
 
 const route = useRoute();
 const router = useRouter();
@@ -13,23 +14,38 @@ const getProject = (slug: string) => {
   const projects = [...profesional_projects, ...personal_projects]
   const project = projects.find((project: any) => project.slug === slug);
   if (!project) {
-    router.push('/portfolio')
+    router.push(`/portfolio/${route.params.type}`);
     view_projects.value = true;
     return;
   };
+  
   return project;
 }
 const handleClick = (slug: string, view_pro = false) => {
-  router.push(`/portfolio/${slug}`);
+  router.push({ name: 'portfolio', params: { type: route.params.type, slug_project: slug}});
   project_selected.value = getProject(slug);
   view_projects.value = view_pro;
 }
+
+const handleSection = (type: string) => {
+  router.push(`/portfolio/${type}`);
+  if (type === 'professional') {
+    const tabTrigger = new Tab(document.getElementById('nav-home-tab'));
+    tabTrigger.show();
+  } else if (type === 'personal') {
+    const tabTrigger = new Tab(document.getElementById('nav-profile-tab'));
+    tabTrigger.show();
+  }
+  view_projects.value = true;
+}
 onMounted(() => {
-  console.log('entre')
   const slug = route.params.slug_project;
   if (slug && typeof slug === 'string') {
     view_projects.value = false;
     project_selected.value = getProject(slug);
+  } else {
+    const route_type = route.params.type || 'professional'
+    handleSection(typeof route_type === 'string' ? route_type : 'professional');
   }
 });
 const redirectToGitHub = (url: string) => {
@@ -37,7 +53,11 @@ const redirectToGitHub = (url: string) => {
 }
 
 watch(() => route.params.slug_project, (new_slug) => {
-  if (!new_slug) handleClick('', true)
+  if (!new_slug) {
+    handleClick('', true)
+    const route_type = route.params.type || 'professional'
+    handleSection(typeof route_type === 'string' ? route_type : 'professional');
+  }
 });
 
 </script>
@@ -49,8 +69,8 @@ watch(() => route.params.slug_project, (new_slug) => {
       
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <button class="nav-link active me-2" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Proyectos Profesionales</button>
-          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Proyectos Personales</button>
+          <button class="nav-link active me-2" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true" @click="handleSection('professional')">Proyectos Profesionales</button>
+          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" @click="handleSection('personal')">Proyectos Personales</button>
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
@@ -122,20 +142,6 @@ watch(() => route.params.slug_project, (new_slug) => {
         </div>
       </div>
     </div>
-
-    <!-- <h5>Hotel ABC Clon</h5>
-
-    <p>Este proyecto fue creado para ampliar mis conocimientos en desarrollo Full Stack, específicamente en Front End y Back End. Inicialmente, el objetivo era replicar la interfaz visual de una página web de un hotel. A medida que avanzaba en el desarrollo, decidí agregar una sección de administrador que permitiera realizar operaciones CRUD. Para el backend, implementé una API utilizando ASP.NET Core.
-    </p>
-    <h5>Objetivos del Proyecto</h5>
-    <ul>
-      <li>Replicar la interfaz visual de una página web de un hotel.</li>
-      <li>Implementar una sección de administrador para operaciones CRUD.</li>
-      <li>Desarrollar una API utilizando ASP.NET Core.</li>
-    </ul>
-
-    <h5>Valor Agregado</h5>
-    <p>Este proyecto me permitió consolidar mis habilidades en desarrollo Full Stack, mejorando tanto mis conocimientos de frontend como de backend. Además, aprendí la importancia de una comunicación eficaz entre el cliente y el servidor</p> -->
   </main>
 </template>
 <style lang="scss" scoped>

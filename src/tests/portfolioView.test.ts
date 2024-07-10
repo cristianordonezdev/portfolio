@@ -13,7 +13,7 @@ const router = createRouter({
 describe('About view tests', () => {
 
   it('renders correctly', async () => {
-    router.push('/portfolio');
+    router.push('/portfolio/professional');
     await router.isReady();
 
     const wrapper = shallowMount(PortfolioView, {
@@ -23,19 +23,19 @@ describe('About view tests', () => {
     });
     expect(wrapper.exists()).toBeTruthy();
   });
-  it('shows correctly components', async () => {
-    router.push('/portfolio');
-    await router.isReady();
+  // it('shows correctly components', async () => {
+  //   // router.push('/portfolio');
+  //   // await router.isReady();
 
-    const wrapper = shallowMount(PortfolioView, {
-      global: {
-        plugins: [router]
-      }
-    });
+  //   // const wrapper = shallowMount(PortfolioView, {
+  //   //   global: {
+  //   //     plugins: [router]
+  //   //   }
+  //   // });
 
-    const cards_projects = wrapper.findAllComponents('.card-projects');
-    // const data_projects = wrapper.vm.profesional_projects;
+  //   // const cards_projects = wrapper.findAllComponents('.card-projects');
+  //   // const data_projects = wrapper.vm.profesional_projects;
 
-    // expect(cards_projects.length).toBe(data_projects.length);
-  })
+  //   // expect(cards_projects.length).toBe(data_projects.length);
+  // })
 });

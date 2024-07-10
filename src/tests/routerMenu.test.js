@@ -34,7 +34,10 @@ describe('left side profile component tests', () => {
     expect(links.length).toBe(navigation_items.length);
 
     links.forEach((link, index) => {
-      expect(link.props('to')).toEqual({ name: navigation_items[index].route_name });
+      // Change of url
+      
+      if (link.props('to').name !== 'portfolio') expect(link.props('to')).toEqual({ name: navigation_items[index].route_name });
+      else expect(link.props('to')).toEqual({ name: 'portfolio', params: { type: 'professional' } });
       const icon = link.find('i');
       expect(icon.exists()).toBe(true);
       expect(icon.classes()).toEqual(expect.arrayContaining(navigation_items[index].icon.split(' ')));
