@@ -61,18 +61,25 @@ export const profesional_projects = [
       github: ['https://github.com/cristianordonezdev/portfolio']
     },
     {
-      name: 'Hotel ABC clone',
-      slug: 'hotel-abc-clone',
-      images: [],
-      url: null,
+      name: 'Hotel clone',
+      slug: 'hotel-clone',
+      images: [
+        new URL('@/assets/img/hotel1.png', import.meta.url),
+        new URL('@/assets/img/hotel2.png', import.meta.url),
+        new URL('@/assets/img/hotel3.png', import.meta.url),
+        new URL('@/assets/img/hotel4.png', import.meta.url),
+        new URL('@/assets/img/hotel5.png', import.meta.url),
+        new URL('@/assets/img/hotel6.png', import.meta.url),
+      ],
+      url: 'https://hotel-clone.cristianordonez.dev',
       is_in_progress: false,
-      description: '<h5>Hotel ABC Clon</h5><p>Este proyecto fue creado para ampliar mis conocimientos en desarrollo Full Stack, específicamente en Front End y Back End. Inicialmente, el objetivo era replicar la interfaz visual de una página web de un hotel. A medida que avanzaba en el desarrollo, decidí agregar una sección de administrador que permitiera realizar operaciones CRUD. Para el backend, implementé una API utilizando ASP.NET Core.</p><h5>Objetivos del Proyecto</h5><ul><li>Replicar la interfaz visual de una página web de un hotel.</li><li>Implementar una sección de administrador para operaciones CRUD.</li><li>Desarrollar una API utilizando ASP.NET Core.</li></ul><h5>Valor Agregado</h5><p>Este proyecto me permitió consolidar mis habilidades en desarrollo Full Stack, mejorando tanto mis conocimientos de frontend como de backend. Además, aprendí la importancia de una comunicación eficaz entre el cliente y el servidor.</p>',
+      description: '<h5>Hotel Clone</h5><p>Este proyecto fue creado para ampliar mis conocimientos en desarrollo Full Stack, específicamente en Front End y Back End. Inicialmente, el objetivo era replicar la interfaz visual de una página web de un hotel. A medida que avanzaba en el desarrollo, decidí agregar una sección de administrador que permitiera realizar operaciones CRUD. Para el backend, implementé una API utilizando ASP.NET Core.</p><h5>Objetivos del Proyecto</h5><ul><li>Replicar la interfaz visual de una página web de un hotel.</li><li>Implementar una sección de administrador para operaciones CRUD.</li><li>Desarrollar una API utilizando ASP.NET Core.</li></ul><h5>Valor Agregado</h5><p>Este proyecto me permitió consolidar mis habilidades en desarrollo Full Stack, mejorando tanto mis conocimientos de frontend como de backend. Además, aprendí la importancia de una comunicación eficaz entre el cliente y el servidor.</p>',
       techs: [
         'AngularJS', 'Bootstrap', 'CSS', 'HTML', 'Git', 'TypeScript', 'ASP.NET Core', 'Sql server'
       ],
       github: [
-        {url: 'https://github.com/cristianordonezdev/HotelABC-API', name: 'API rest'},
-        {url: 'https://github.com/cristianordonezdev/hotel', name: 'Front End Angular'},
+        {url: 'https://github.com/cristianordonezdev/hotel-clone-api', name: 'API rest'},
+        {url: 'https://github.com/cristianordonezdev/hotel-clone-front', name: 'Front End Angular'},
       ]
     },
   ]

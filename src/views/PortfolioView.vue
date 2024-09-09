@@ -9,6 +9,7 @@ const route = useRoute();
 const router = useRouter();
 const view_projects = ref<boolean>(true);
 const project_selected: any = ref({});
+const section_tab = ref<string>('proffesional');
 
 const getProject = (slug: string) => {
   const projects = [...profesional_projects, ...personal_projects]
@@ -29,19 +30,7 @@ const handleClick = (slug: string, view_pro = false) => {
 
 const handleSection = (type: string) => {
   router.push(`/portfolio/${type}`);
-  if (type === 'professional') {
-    const homeTab = document.getElementById('nav-home-tab');
-    if (homeTab) {
-      const tabTrigger = new Tab(homeTab);
-      tabTrigger.show();
-    }
-  } else if (type === 'personal') {
-    const profileTab = document.getElementById('nav-profile-tab');
-    if (profileTab) {
-      const tabTrigger = new Tab(profileTab);
-      tabTrigger.show();
-    }
-  }
+  section_tab.value = type;
   view_projects.value = true;
 }
 onMounted(() => {
@@ -75,12 +64,12 @@ watch(() => route.params.slug_project, (new_slug) => {
       
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <button class="nav-link active me-2" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true" @click="handleSection('professional')">Proyectos Profesionales</button>
-          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" @click="handleSection('personal')">Proyectos Personales</button>
+          <button class="nav-link me-2" :class="{'active': section_tab === 'professional'}" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true" @click="handleSection('professional')">Proyectos Profesionales</button>
+          <button class="nav-link" :class="{'active': section_tab === 'personal'}" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" @click="handleSection('personal')">Proyectos Personales</button>
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+        <div v-if="section_tab === 'professional'" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
           <div class="mt-4 grid">
             <card-projects 
               class="card-projects" 
@@ -91,7 +80,7 @@ watch(() => route.params.slug_project, (new_slug) => {
             ></card-projects>
           </div>
         </div>
-        <div class="tab-pane fade show" id="nav-profile" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="1">
+        <div v-else id="nav-profile" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="1">
           <div class="mt-4 grid">
             <card-projects 
               class="card-projects" 
@@ -121,7 +110,8 @@ watch(() => route.params.slug_project, (new_slug) => {
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li v-for="i in project_selected.github" :key="i.url" @click="redirectToGitHub(i.url)"><a class="dropdown-item" href="#">{{i.name}}</a></li>
           </ul>
-        </div>
+        </div> 
+
       </div>
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" v-if="project_selected.images.length > 0">
         <div class="carousel-inner">
