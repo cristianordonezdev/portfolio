@@ -10,13 +10,19 @@ const lines: any = ref(
           year: '2017', 
           year_description: 'Universidad Autonoma del Estado de México',
           title: 'Fundamentos de Programación',
-          title_description: 'Empecé la carrera de Ingeniería en Sistemas Inteligentes. Se empezo a tener  mucho interes en el mundo de la programación.'
+          title_description: 'Empecé la carrera de Ingeniería en Sistemas Inteligentes y descubrí mi interés por el mundo de la programación.'
         },
         {
           year: '2020', 
           year_description: 'Universidad Autonoma del Estado de México',
           title: 'Desarrollo Web',
-          title_description: 'Empecé a dedicarme al desarrollo web y a enlistarme en cursos del tipo.'
+          title_description: 'Comencé a enfocarme en el desarrollo web y a participar en cursos especializados en esta área.'
+        },
+        {
+          year: '2022', 
+          year_description: 'Universidad Autonoma del Estado de México',
+          title: 'Conclusión de Carrera',
+          title_description: 'Finalicé mis estudios y empecé a buscar oportunidades profesionales en el campo del desarrollo de software.'
         },
       ]
     },
@@ -24,30 +30,37 @@ const lines: any = ref(
       name: 'Experiencia',
       line: [
         {
+          year: '2024', 
+          year_description: 'Freelancer',
+          title: 'Desarrollador Freelancer',
+          title_description: 'Trabajo como freelancer en diversos proyectos personales y colaboraciones con BrandMe.'
+        },
+        {
           year: '2023', 
           year_description: 'Palacio de Hierro',
           title: 'Desarrollador Back End',
-          title_description: 'Desarrollo de software de transacciones y gestión de restaurantes Palacio de Hierro, en sistemas Micros POS de Oracle.'
+          title_description: 'Desarrollé software para la gestión de transacciones y restaurantes de Palacio de Hierro, utilizando sistemas Micros POS de Oracle.'
         },
         {
           year: '2023', 
           year_description: 'Baacanda',
           title: 'Desarrollador Freelancer Front End',
-          title_description: 'Se trabajo en un software de pólizas de seguros para inmigrantes.'
+          title_description: 'Colaboré en el desarrollo de un software de pólizas de seguros dirigido a inmigrantes.'
         },
         {
           year: '2023', 
-          year_description: 'Proyecto',
+          year_description: 'Proyecto Independiente',
           title: 'Desarrollador Freelancer Front End',
-          title_description: 'Se desarrollo un software para impulsar redes sociales de Influencers.'
+          title_description: 'Desarrollé un software enfocado en impulsar las redes sociales de influencers.'
         },
         {
           year: '2021', 
           year_description: 'BrandMe CrowMarketing',
           title: 'Desarrollador Front End JR',
-          title_description: 'Se buscaba crear la mejor plataforma latinoaméricana que conectara Influencers con Marcas.'
-        },
+          title_description: 'Participé en la creación de una plataforma innovadora para conectar influencers con marcas en América Latina.'
+        }
       ]
+
     }
   ]
 )
@@ -94,7 +107,7 @@ const habilities: any = ref([
 </script>
 
 <template>
-  <main class="text-white main-container-home">    
+  <main class="text-white main-container-home">
     <div class="mb-5 overflow-scrols row">
       <div class="flex-column col-12 col-md-6">
         <div class="mb-5 lines-container" v-for="line in lines" :key="line.name">
