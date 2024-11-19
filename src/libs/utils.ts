@@ -49,16 +49,16 @@ export const profesional_projects = [
   ]
   export const personal_projects = [
     {
-      name: 'Mi portfolio',
-      slug: 'my-portfolio',
-      images: [new URL('@/assets/img/porfolio.png', import.meta.url)],
-      url: 'https://cristianordonez.dev',
+      name: 'SocialOC',
+      slug: 'social-oc',
+      images: [],
+      url: '',
       is_in_progress: false,
-      description: '<h5>Mi portafolio</h5><p>El objetivo principal de este proyecto es demostrar mi experiencia y tener un sitio donde mostrar los proyectos que he elaborado y colaborado.</p><p>Este sitio fue elaborado con VueJs ya que mi principal tecnología.</p>',
+      description: '<h5>Proyecto: Réplica de Instagram</h5><p>Este proyecto es una réplica funcional de la popular red social Instagram, diseñada con el objetivo de profundizar en el desarrollo Backend y adquirir experiencia práctica con tecnologías modernas. La aplicación permite a los usuarios interactuar mediante acciones clave como seguir a otros usuarios, gestionar solicitudes de seguimiento, y realizar publicaciones, replicando una experiencia similar a la plataforma original.</p><strong>Características Principales:</strong><ul><li><strong>Autenticación de Usuarios:</strong><ul><li>Inicio de sesión y registro de usuarios con roles específicos (público y privado).</li><li>Inicio de sesión por OAUTH.</li><li>Autenticación basada en JWT para garantizar la seguridad de las sesiones.</li></ul></li><li><strong>Sistema de Seguimiento:</strong><ul><li>Funcionalidad para seguir y dejar de seguir usuarios.</li><li>Gestión de solicitudes de seguimiento para cuentas privadas.</li><li>Diferenciación entre cuentas públicas y privadas.</li></ul></li><li><strong>Interacciones Sociales:</strong><ul><li>Publicación de fotos y videos.</li><li>Seguimiento de las actividades de los usuarios que sigues.</li><li>Solicitudes de interacción a usuarios con cuentas privadas.</li></ul></li></ul><strong>Tecnologías Utilizadas:</strong><ul><li><strong>Integración y Seguridad:</strong><ul><li>JWT para autenticación y autorización.</li><li>Almacenamiento seguro de datos sensibles.</li></ul></li><li><strong>Herramientas Adicionales:</strong><ul><li>Postman para pruebas de API.</li><li>Swagger para documentación interactiva de la API.</li><li>Git y GitHub para control de versiones.</li></ul></li></ul><strong>Motivación:</strong><p>Este proyecto surge como un desafío personal para explorar el desarrollo completo de una aplicación compleja y ganar experiencia en la creación de funcionalidades similares a una plataforma ampliamente conocida. Además, buscaba integrar mis habilidades como de Backend en un entorno colaborativo.</p>',
       techs: [
-        'VueJS', 'HTML', 'JavaScript', 'CSS', 'Git', 'Boostrap', 'Vitest', 'Vite'
+        'ASP.NET Core', 'Sql server', 'Git', 'Postman', 'Swagger', 'GitHub'
       ],
-      github: ['https://github.com/cristianordonezdev/portfolio']
+      github: ['https://github.com/cristianordonezdev/social-oc-api']
     },
     {
       name: 'Hotel clone',
@@ -75,11 +75,23 @@ export const profesional_projects = [
       is_in_progress: false,
       description: '<h5>Hotel Clone</h5><p>Este proyecto fue creado para ampliar mis conocimientos en desarrollo Full Stack, específicamente en Front End y Back End. Inicialmente, el objetivo era replicar la interfaz visual de una página web de un hotel. A medida que avanzaba en el desarrollo, decidí agregar una sección de administrador que permitiera realizar operaciones CRUD. Para el backend, implementé una API utilizando ASP.NET Core.</p><h5>Objetivos del Proyecto</h5><ul><li>Replicar la interfaz visual de una página web de un hotel.</li><li>Implementar una sección de administrador para operaciones CRUD.</li><li>Desarrollar una API utilizando ASP.NET Core.</li></ul><h5>Valor Agregado</h5><p>Este proyecto me permitió consolidar mis habilidades en desarrollo Full Stack, mejorando tanto mis conocimientos de frontend como de backend. Además, aprendí la importancia de una comunicación eficaz entre el cliente y el servidor.</p>',
       techs: [
-        'AngularJS', 'Bootstrap', 'CSS', 'HTML', 'Git', 'TypeScript', 'ASP.NET Core', 'Sql server'
+        'AngularJS', 'Bootstrap', 'CSS', 'HTML', 'Git', 'TypeScript', 'ASP.NET Core', 'Sql server', 'Postman', 'Swagger', 'GitHub'
       ],
       github: [
         {url: 'https://github.com/cristianordonezdev/hotel-clone-api', name: 'API rest'},
         {url: 'https://github.com/cristianordonezdev/hotel-clone-front', name: 'Front End Angular'},
       ]
+    },
+    {
+      name: 'Mi portfolio',
+      slug: 'my-portfolio',
+      images: [new URL('@/assets/img/porfolio.png', import.meta.url)],
+      url: 'https://cristianordonez.dev',
+      is_in_progress: false,
+      description: '<h5>Mi portafolio</h5><p>El objetivo principal de este proyecto es demostrar mi experiencia y tener un sitio donde mostrar los proyectos que he elaborado y colaborado.</p><p>Este sitio fue elaborado con VueJs ya que mi principal tecnología.</p>',
+      techs: [
+        'VueJS', 'HTML', 'JavaScript', 'CSS', 'Git', 'Boostrap', 'Vitest', 'Vite', 'GitHub'
+      ],
+      github: ['https://github.com/cristianordonezdev/portfolio']
     },
   ]
