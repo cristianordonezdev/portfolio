@@ -90,7 +90,7 @@ const closeAlertDanger = () => {
               <vee-field name="message" v-slot="{ field, errors }" type="text" class="">
                 <div class="form-floating h-100">
                   <textarea v-bind="field" class="form-control text-area h-100"  placeholder="Mensaje" id="floatingTextarea2" :class="{ 'is-invalid': errors.length > 0 }"></textarea>
-                  <label for="floatingTextarea2">Comments</label>
+                  <label for="floatingTextarea2">Comentarios</label>
                   <div class="invalid-feedback">{{errors[0]}}</div>
                 </div>
               </vee-field>

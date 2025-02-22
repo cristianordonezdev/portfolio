@@ -4,36 +4,19 @@ import { ref } from 'vue';
 const lines: any = ref(
   [
     {
-      name: 'Formación',
-      line: [
-          {
-          year: '2017', 
-          year_description: 'Universidad Autonoma del Estado de México',
-          title: 'Fundamentos de Programación',
-          title_description: 'Empecé la carrera de Ingeniería en Sistemas Inteligentes y descubrí mi interés por el mundo de la programación.'
-        },
-        {
-          year: '2020', 
-          year_description: 'Universidad Autonoma del Estado de México',
-          title: 'Desarrollo Web',
-          title_description: 'Comencé a enfocarme en el desarrollo web y a participar en cursos especializados en esta área.'
-        },
-        {
-          year: '2022', 
-          year_description: 'Universidad Autonoma del Estado de México',
-          title: 'Conclusión de Carrera',
-          title_description: 'Finalicé mis estudios y empecé a buscar oportunidades profesionales en el campo del desarrollo de software.'
-        },
-      ]
-    },
-    {
       name: 'Experiencia',
       line: [
+        {
+          year: '2025', 
+          year_description: 'LexisNexis',
+          title: 'Software Engineer',
+          title_description: "Actualmente trabajo en LexisNexis, desarrollando software para la gestión de contratos y documentos legales en distintos países donde opera la empresa."
+        },
         {
           year: '2024', 
           year_description: 'Freelancer',
           title: 'Desarrollador Freelancer',
-          title_description: 'Trabajo como freelancer en diversos proyectos personales y colaboraciones con BrandMe.'
+          title_description: 'Trabajé como freelancer en diversos proyectos personales y colaboraciones con BrandMe.'
         },
         {
           year: '2023', 
@@ -60,8 +43,30 @@ const lines: any = ref(
           title_description: 'Participé en la creación de una plataforma innovadora para conectar influencers con marcas en América Latina.'
         }
       ]
-
-    }
+    },
+    {
+      name: 'Formación',
+      line: [
+          {
+          year: '2017', 
+          year_description: 'Universidad Autonoma del Estado de México',
+          title: 'Fundamentos de Programación',
+          title_description: 'Empecé la carrera de Ingeniería en Sistemas Inteligentes y descubrí mi interés por el mundo de la programación.'
+        },
+        {
+          year: '2020', 
+          year_description: 'Universidad Autonoma del Estado de México',
+          title: 'Desarrollo Web',
+          title_description: 'Comencé a enfocarme en el desarrollo web y a participar en cursos especializados en esta área.'
+        },
+        {
+          year: '2022', 
+          year_description: 'Universidad Autonoma del Estado de México',
+          title: 'Conclusión de Carrera',
+          title_description: 'Finalicé mis estudios y empecé a buscar oportunidades profesionales en el campo del desarrollo de software.'
+        },
+      ]
+    },
   ]
 )
 const habilities: any = ref([
@@ -72,6 +77,7 @@ const habilities: any = ref([
       {icon: new URL('@/assets/icons/html.svg', import.meta.url), label: 'HTML'},
       {icon: new URL('@/assets/icons/css.svg', import.meta.url), label: 'CSS'},
       {icon: new URL('@/assets/icons/vue.svg', import.meta.url), label: 'VueJS'},
+      {icon: new URL('@/assets/icons/react.svg', import.meta.url), label: 'React'},
       {icon: new URL('@/assets/icons/angular.svg', import.meta.url), label: 'Angular'},
       {icon: new URL('@/assets/icons/bootstrap.svg', import.meta.url), label: 'BootStrap'},
       {icon: new URL('@/assets/icons/tailwindcss.svg', import.meta.url), label: 'TailwindCSS'},
