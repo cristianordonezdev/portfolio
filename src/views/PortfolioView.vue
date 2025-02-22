@@ -3,7 +3,6 @@ import { onMounted, ref, watch } from 'vue';
 import CardProjects from '../components/CardProjects.vue';
 import { useRoute, useRouter } from 'vue-router';
 import { profesional_projects, personal_projects } from '../libs/utils';
-import { Tab } from 'bootstrap';
 
 const route = useRoute();
 const router = useRouter();

@@ -1,5 +1,21 @@
 export const profesional_projects = [
     {
+      name: 'LexisNexis',
+      slug: 'nexis+ia',
+      images: [
+        new URL('@/assets/img/lexis.png', import.meta.url),
+        new URL('@/assets/img/lexis1.jpg', import.meta.url),
+        new URL('@/assets/img/lexis2.png', import.meta.url),
+        new URL('@/assets/img/lexis3.png', import.meta.url),
+      ],
+      url: 'https://www.lexisnexis.com/es-mx/productos/nexis-plus-ai-insider-program',
+      is_in_progress: false,
+      description: '<h5>¿Qué es LexisNexis?</h5><p>LexisNexis es una empresa líder en soluciones de información y tecnología para el sector legal, financiero y corporativo. Su plataforma ofrece herramientas avanzadas para la gestión de documentos legales, automatización de contratos y análisis de datos, ayudando a profesionales y empresas a tomar decisiones informadas y eficientes. Con presencia en múltiples países, LexisNexis facilita el acceso a información legal confiable y optimiza los procesos de cumplimiento normativo.</p><p>Para abogados y empresas, LexisNexis proporciona soluciones que agilizan la redacción y revisión de contratos, mejoran la gestión documental y permiten la investigación jurídica con tecnología basada en inteligencia artificial. Esto reduce el tiempo de trabajo manual y minimiza riesgos legales.</p><p>Para gobiernos e instituciones, LexisNexis ofrece herramientas que fortalecen la transparencia, el cumplimiento de regulaciones y la gestión de datos, permitiendo tomar decisiones basadas en información precisa y actualizada.</p><h5>Mi Rol</h5><p>Como Ingeniero de Software en LexisNexis, mi responsabilidad principal es la creación y optimización de aplicaciones para la gestión de contratos y documentos legales. Implemento mejoras en la interfaz de usuario y la experiencia del usuario (UX/UI), garantizando accesibilidad y facilidad de uso. Además, colaboro en la integración de nuevas funcionalidades o secciones basadas en una arquitectura de microfrontends. </p>',
+      techs: [
+        'Microfrontends', 'C#','ASP.NET Core', 'React',' Angular', 'HTML', 'JavaScript', 'CSS', 'Git', 'AzureDevOps', 'AWS' 
+      ],
+    },
+    {
       name: 'BrandMe',
       slug: 'brandme',
       images: [
