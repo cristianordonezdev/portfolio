@@ -22,6 +22,10 @@ jobs:
         run: npm install
 
       - name: Build the application
+        env:
+          VITE_SERVICE_ID_EMAILJS: ${{ secrets.VITE_SERVICE_ID_EMAILJS }}
+          VITE_TEMPLATE_ID_EMAILJS: ${{ secrets.VITE_TEMPLATE_ID_EMAILJS }}
+          VITE_PUBLIC_ID_EMAILJS: ${{ secrets.VITE_PUBLIC_ID_EMAILJS }}
         run: npm run build
 
       - name: Install lftp
